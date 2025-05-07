@@ -91,20 +91,20 @@ export default function Home() {
       {/* Featured Courses Section */}
       <section className="bg-muted/30 dark:bg-muted/10">
         <div className="container px-4 py-12 md:py-24">
-          <div className="flex flex-col md:flex-row justify-between items-center mb-12">
+          <div className="flex flex-col md:flex-row justify-center items-center mb-12">
             <h2 className="text-3xl font-bold text-center">Upcoming Live Classes Reserve Your Spot Now!</h2>
           </div>
           <div className="flex flex-wrap justify-center gap-4 mb-8">
    <Button className="rounded-full" variant="default">
     Applied Sciences
   </Button>
-  <Button className="rounded-full" variant="outline">
+  <Button className="rounded-full  border-4 border-blue-500 text-blue-500" variant="outline">
     Academic Science
   </Button>
-  <Button className="rounded-full" variant="outline">
+  <Button className="rounded-full border-4 border-blue-500 text-blue-500" variant="outline">
     Web Development
   </Button>
-    <Button className="rounded-full" variant="outline">
+    <Button className="rounded-full border-4 border-blue-500 text-blue-500" variant="outline">
       Mathematics
     </Button>
   </div>
@@ -158,67 +158,86 @@ export default function Home() {
       </section>
 
       {/* Recent Classes Section */}
-      <section className="bg-background">
-        <div className="container px-4 py-12 md:py-24">
-          <h2 className="text-3xl font-bold mb-12 text-center">Most Recent Classes</h2>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {[1, 2, 3].map((i) => (
-              <Card key={i} className="overflow-hidden">
-                <div className="p-6">
-                  <div className="flex justify-between">
-                    <div className="flex gap-4">
-                      <Image
-                        src="/placeholder.svg?height=80&width=80"
-                        alt="Course thumbnail"
-                        width={80}
-                        height={80}
-                        className="rounded-md object-cover"
-                      />
-                      <div>
-                        <h3 className="font-bold mb-1">Low-code Course for Beginners</h3>
-                        <div className="flex items-center gap-2">
-                          <span className="text-xl font-bold">$48.00</span>
-                          <span className="text-muted-foreground line-through">$57.60</span>
-                        </div>
-                        <div className="flex items-center mt-1">
-                          <div className="flex text-yellow-400 mr-2">
-                            <Star className="w-4 h-4 fill-current" />
-                            <Star className="w-4 h-4 fill-current" />
-                            <Star className="w-4 h-4 fill-current" />
-                            <Star className="w-4 h-4 fill-current" />
-                            <Star className="w-4 h-4 fill-current" />
-                          </div>
-                          <span className="text-xs">4.8 (25)</span>
-                        </div>
-                        <div className="text-xs text-muted-foreground mt-1">12 Lessons • 4hrs 30 mins</div>
-                      </div>
+  <section className="bg-background">
+  <div className="container px-4 py-12 md:py-24">
+    <h2 className="text-3xl font-bold mb-12 text-center">Most Recent Classes</h2>
+
+    {/* Card Grid */}
+    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      {[
+        { title: "Low-code Course for Beginners" },
+        { title: "Create Advanced Maths for Engineering" },
+        { title: "Advanced Calculus for High School Students" },
+        { title: "End-to-End MLOps for Databricks" },
+      ].map((course, i) => (
+        <Card key={i} className="overflow-hidden border rounded-lg shadow-md">
+          <div className="p-6">
+            <div className="flex justify-between">
+              {/* Thumbnail & Course Details */}
+              <div className="flex gap-4">
+                <Image
+                  src="/placeholder.svg?height=80&width=80"
+                  alt="Course thumbnail"
+                  width={80}
+                  height={80}
+                  className="rounded-md object-cover"
+                />
+                <div>
+                  <h3 className="font-bold mb-1">{course.title}</h3>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xl font-bold text-green-500">$48.00</span>
+                    <span className="text-muted-foreground line-through">$57.60</span>
+                  </div>
+                  <div className="flex items-center mt-1">
+                    <div className="flex text-yellow-400 mr-2">
+                      {[...Array(5)].map((_, index) => (
+                        <Star key={index} className="w-4 h-4 fill-current" />
+                      ))}
                     </div>
-                    <Button variant="ghost" size="icon" className="text-red-500">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="lucide lucide-heart"
-                      >
-                        <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
-                      </svg>
-                    </Button>
+                    <span className="text-xs">4.8 (25)</span>
+                  </div>
+                  <div className="text-xs text-muted-foreground mt-1">
+                    12 Lessons • 4hrs 30 mins
                   </div>
                 </div>
-              </Card>
-            ))}
+              </div>
+
+              {/* Favorite Button */}
+              <Button variant="ghost" size="icon" className="text-red-500 hover:text-red-600">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="lucide lucide-heart"
+                >
+                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                </svg>
+              </Button>
+            </div>
           </div>
-        </div>
-      </section>
+        </Card>
+      ))}
+    </div>
+
+    {/* Centered Button */}
+    <div className="flex justify-center mt-10">
+      <Button>See All Recording Courses</Button>
+    </div>
+  </div>
+</section>
+
+
+
+
 
       {/* Promo Banner */}
-      <section className="bg-muted/30 dark:bg-muted/10">
+      {/* <section className="bg-muted/30 dark:bg-muted/10">
         <div className="container px-4 py-8">
           <div className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-lg overflow-hidden">
             <div className="flex flex-col md:flex-row items-center p-6">
@@ -238,10 +257,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Become a Coach Section */}
-      <section className="bg-blue-500 text-white">
+      {/* <section className="bg-blue-500 text-white">
         <div className="container px-4 py-12 md:py-24">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-4">
@@ -267,10 +286,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* FAQ Section */}
-      <section className="bg-muted/30 dark:bg-muted/10">
+      {/* <section className="bg-muted/30 dark:bg-muted/10">
         <div className="container px-4 py-12 md:py-24">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">
@@ -325,10 +344,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Quiz Section */}
-      <section className="bg-gray-900 text-white">
+      {/* <section className="bg-gray-900 text-white">
         <div className="container px-4 py-12 md:py-24">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-4">Participate in Weekly Quiz Competitions</h2>
@@ -342,7 +361,7 @@ export default function Home() {
             </Button>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* 1-on-1 Section */}
       <section className="bg-muted/30 dark:bg-muted/10">
@@ -367,6 +386,26 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="bg-white py-10 px-4 text-center">
+  {/* Section 1: Expert Guidance */}
+  <div className="max-w-md mx-auto">
+    <h2 className="text-xl font-bold mb-2">Need Personalized Help?<br />Get 1-on-1 Expert Guidance</h2>
+    <p className="text-gray-600 mb-6">
+      Not ready for a full consultation? No problem. With our Pay Per Question feature, you can get trusted advice from verified coaches, therapists, and experts without booking a full session.
+    </p>
+    <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md mb-6">
+      Ask Your Question Now
+    </button>
+    <img
+      src="/placeholder.svg?height=80&width=80"
+      alt="Woman thinking"
+      className="mx-auto w-full max-w-xs"
+    />
+  </div>
+ 
+</section>
+
+
       {/* Membership Section */}
       <section className="bg-background">
         <div className="container px-4 py-12 md:py-24">
@@ -386,6 +425,76 @@ export default function Home() {
             </div>
           </div>
           <div className="grid gap-8 md:grid-cols-3">
+              <Card className="overflow-hidden">
+              <div className="bg-blue-500 text-white p-6">
+                <h3 className="text-2xl font-bold mb-2">Basic Access</h3>
+                <p className="mb-4">
+                 Not ready to commit?
+No problem. Purchase individual recorded classes anytime and learn at your own pace.
+                </p>
+                <div className="text-4xl font-bold">$89</div>
+                <div className="text-sm opacity-80">per month</div>
+              </div>
+              <CardContent className="p-6">
+                <ul className="space-y-2">
+                  <li className="flex items-center gap-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="text-green-500"
+                    >
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                      <path d="m9 11 3 3L22 4" />
+                    </svg>
+                    <span> One-time payments</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="text-green-500"
+                    >
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                      <path d="m9 11 3 3L22 4" />
+                    </svg>
+                    <span> Lifetime access to purchased recordings</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="text-green-500"
+                    >
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                      <path d="m9 11 3 3L22 4" />
+                    </svg>
+                    <span> Perfect for occasional learners</span>
+                  </li>
+                </ul>
+                <Button className="w-full mt-6">Subscribe Now</Button>
+              </CardContent>
+            </Card>
             <Card className="overflow-hidden">
               <div className="bg-blue-500 text-white p-6">
                 <h3 className="text-2xl font-bold mb-2">Premium Membership</h3>
