@@ -5,6 +5,14 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Star } from "lucide-react"
 
 export default function Home() {
+ const faqData = [
+    { question: "How do I book a class?", answer: "You can book a class through our website or mobile app." },
+    { question: "Can I cancel or reschedule a session?", answer: "Yes, cancellations and rescheduling are allowed up to 24 hours before the session." },
+    { question: "How do I access recorded classes?", answer: "Recorded sessions are available in your account dashboard under 'My Classes'." },
+    { question: "Duis scelerisque ultricies purus?", answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
+    { question: "Mauris posuere at orci at consequat?", answer: "Pellentesque habitant morbi tristique senectus et netus." },
+    { question: "Vestibulum hendrerit nisi tortor?", answer: "Suspendisse potenti. Donec ac eros ut velit varius consequat." }
+];
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
@@ -492,7 +500,7 @@ No problem. Purchase individual recorded classes anytime and learn at your own p
                     <span> Perfect for occasional learners</span>
                   </li>
                 </ul>
-                <Button className="w-full mt-6">Subscribe Now</Button>
+                <Button className="w-full mt-6">Get Started</Button>
               </CardContent>
             </Card>
             <Card className="overflow-hidden">
@@ -541,7 +549,7 @@ No problem. Purchase individual recorded classes anytime and learn at your own p
                       <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                       <path d="m9 11 3 3L22 4" />
                     </svg>
-                    <span>Full library of recorded sessions</span>
+                    <span> Access to all recorded content</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <svg
@@ -559,10 +567,46 @@ No problem. Purchase individual recorded classes anytime and learn at your own p
                       <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                       <path d="m9 11 3 3L22 4" />
                     </svg>
-                    <span>Discussion forum access</span>
+                    <span> Community discussion boards</span>
+                  </li>
+                   <li className="flex items-center gap-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="text-green-500"
+                    >
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                      <path d="m9 11 3 3L22 4" />
+                    </svg>
+                    <span>Zoom links delivered to your inbox</span>
+                  </li>
+                    <li className="flex items-center gap-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="text-green-500"
+                    >
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                      <path d="m9 11 3 3L22 4" />
+                    </svg>
+                    <span>Priority support</span>
                   </li>
                 </ul>
-                <Button className="w-full mt-6">Subscribe Now</Button>
+                <Button className="w-full mt-6">Get Started</Button>
               </CardContent>
             </Card>
             <Card className="overflow-hidden border-primary">
@@ -572,9 +616,9 @@ No problem. Purchase individual recorded classes anytime and learn at your own p
                 </div>
                 <h3 className="text-2xl font-bold mb-2">Elite Membership</h3>
                 <p className="mb-4">
-                  Everything in Premium plus priority booking for live sessions and monthly 1-on-1 coaching sessions.
+                  Get everything in Premium, plus dedicated time with our experts. Ideal for deep dives, mentorship, and personal growth.
                 </p>
-                <div className="text-4xl font-bold">$199</div>
+                <div className="text-4xl font-bold">$129</div>
                 <div className="text-sm opacity-80">per month</div>
               </div>
               <CardContent className="p-6">
@@ -595,7 +639,7 @@ No problem. Purchase individual recorded classes anytime and learn at your own p
                       <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                       <path d="m9 11 3 3L22 4" />
                     </svg>
-                    <span>All Premium features</span>
+                    <span>All Premium benefits</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <svg
@@ -613,7 +657,7 @@ No problem. Purchase individual recorded classes anytime and learn at your own p
                       <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                       <path d="m9 11 3 3L22 4" />
                     </svg>
-                    <span>Monthly 1-on-1 coaching session</span>
+                    <span>Monthly 1-on-1 consultation sessions</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <svg
@@ -631,86 +675,89 @@ No problem. Purchase individual recorded classes anytime and learn at your own p
                       <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                       <path d="m9 11 3 3L22 4" />
                     </svg>
-                    <span>Priority booking for live classes</span>
+                    <span>Direct video calling with instructors</span>
+                  </li>
+
+                     <li className="flex items-center gap-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="text-green-500"
+                    >
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                      <path d="m9 11 3 3L22 4" />
+                    </svg>
+                    <span>Personalized feedback and support</span>
                   </li>
                 </ul>
-                <Button className="w-full mt-6">Subscribe Now</Button>
+                <Button className="w-full mt-6">Get Started</Button>
               </CardContent>
             </Card>
-            <Card className="overflow-hidden">
-              <div className="bg-gray-200 dark:bg-gray-800 p-6">
-                <h3 className="text-2xl font-bold mb-2">Basic Membership</h3>
-                <p className="mb-4">
-                  Perfect for beginners. Access to selected live classes and limited recorded content.
-                </p>
-                <div className="text-4xl font-bold">$49</div>
-                <div className="text-sm opacity-80">per month</div>
-              </div>
-              <CardContent className="p-6">
-                <ul className="space-y-2">
-                  <li className="flex items-center gap-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="text-green-500"
-                    >
-                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                      <path d="m9 11 3 3L22 4" />
-                    </svg>
-                    <span>5 live classes per month</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="text-green-500"
-                    >
-                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                      <path d="m9 11 3 3L22 4" />
-                    </svg>
-                    <span>Limited recorded content</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="text-green-500"
-                    >
-                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                      <path d="m9 11 3 3L22 4" />
-                    </svg>
-                    <span>Basic forum access</span>
-                  </li>
-                </ul>
-                <Button className="w-full mt-6" variant="outline">
-                  Subscribe Now
-                </Button>
-              </CardContent>
-            </Card>
+           
           </div>
         </div>
       </section>
+<div className="flex flex-col lg:flex-row items-center justify-center gap-6 min-h-[60vh] bg-gray-100 p-4">
+  {/* Discussion Card */}
+  <section className="bg-white shadow-lg rounded-lg p-6 max-w-lg w-full text-center">
+    <h1 className="text-2xl font-bold text-gray-800 mb-3">
+      Join the Discussion, Share Your Insights!
+    </h1>
+    <p className="text-gray-600 mb-5">
+      Learning doesn't end after class. Ask questions, share thoughts, 
+      and collaborate with fellow students in our interactive discussion forum.
+    </p>
+    <Button className="bg-blue-500 text-white px-5 py-2 rounded-lg hover:bg-blue-600 transition">
+      Explore Discussions
+    </Button>
+  </section>
+
+  {/* Coach Recruitment Card */}
+  <div className="bg-[#1DA1F2] rounded-2xl p-6 max-w-md w-full text-center text-white shadow-xl">
+    <h2 className="text-xl font-bold mb-3">
+      Join Our Growing Network of Experts in Therapy, HR, and Organizational Consulting
+    </h2>
+    <p className="text-white text-sm mb-6">
+      Are you a certified therapist, human resource expert, or organizational development consultant? We're looking for passionate professionals like you to join our coaching platform and empower individuals and teams to grow, heal, and thrive.
+    </p>
+    <button className="bg-white text-black font-semibold py-2 px-4 rounded-md w-full mb-3">
+      Become a Coach
+    </button>
+    <button className="border border-white text-white font-semibold py-2 px-4 rounded-md w-full">
+      View Coach Guidelines
+    </button>
+  </div>
+</div>
+
+<section className="bg-white shadow-lg rounded-lg p-6 max-w-lg mx-auto">
+            <h1 className="text-2xl font-bold text-gray-800 mb-4 text-center">
+                Got Questions? We've Got Answers!
+            </h1>
+            
+            <div className="space-y-4">
+                {faqData.map((item, index) => (
+                    <div key={index} className="border-b pb-2">
+                        <details className="w-full">
+                            <summary className="text-gray-700 font-semibold cursor-pointer">
+                                {item.question}
+                            </summary>
+                            <p className="text-gray-600 mt-2">{item.answer}</p>
+                        </details>
+                    </div>
+                ))}
+            </div>
+        </section>
+
+
+
+
     </div>
   )
 }

@@ -29,19 +29,20 @@ export default function LoginPage() {
 
   return (
     <div className="container relative flex pt-20 flex-col items-center justify-center lg:px-0">
-      <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
+      <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px] shadow-lg rounded-xl bg-white p-6">
         <div className="flex flex-col space-y-2 text-center">
-          <h1 className="text-2xl font-semibold tracking-tight">Welcome back</h1>
-          <p className="text-sm text-muted-foreground">Enter your email and password to sign in to your account</p>
+          <h1 className="text-2xl font-semibold tracking-tight">Welcome To Metamatch</h1>
+          <p className="text-sm text-black font-semibold">Sign in below</p>
+
         </div>
         <div className="grid gap-6">
           <form onSubmit={handleSubmit}>
             <div className="grid gap-4">
               <div className="grid gap-2">
-                <Label htmlFor="email">Email</Label>
+        
                 <Input
                   id="email"
-                  placeholder="name@example.com"
+                  placeholder="Email"
                   type="email"
                   autoCapitalize="none"
                   autoComplete="email"
@@ -51,18 +52,11 @@ export default function LoginPage() {
                 />
               </div>
               <div className="grid gap-2">
-                <div className="flex items-center justify-between">
-                  <Label htmlFor="password">Password</Label>
-                  <Link
-                    href="/auth/reset-password"
-                    className="text-sm font-medium text-primary underline-offset-4 hover:underline"
-                  >
-                    Forgot password?
-                  </Link>
-                </div>
+               
                 <div className="relative">
                   <Input
                     id="password"
+                    placeholder="Password"
                     type={showPassword ? "text" : "password"}
                     autoCapitalize="none"
                     autoComplete="current-password"
@@ -80,8 +74,9 @@ export default function LoginPage() {
                     <span className="sr-only">{showPassword ? "Hide password" : "Show password"}</span>
                   </Button>
                 </div>
+                
               </div>
-              <div className="flex items-center space-x-2">
+              {/* <div className="flex items-center space-x-2">
                 <Checkbox id="remember" />
                 <Label
                   htmlFor="remember"
@@ -89,7 +84,7 @@ export default function LoginPage() {
                 >
                   Remember me
                 </Label>
-              </div>
+              </div> */}
               <Button disabled={isLoading}>
                 {isLoading && (
                   <svg
@@ -109,17 +104,25 @@ export default function LoginPage() {
                 )}
                 Sign In
               </Button>
+
+               <div className="flex items-center justify-center">
+            
+                  <Link
+                    href="/auth/reset-password"
+                    className="text-sm font-semibold text-primary underline-offset-4 hover:underline"
+                  >
+                    Forgot Your password?
+                  </Link>
+                </div>
             </div>
           </form>
           <div className="relative">
-            <div className="absolute inset-0 flex items-center">
-              <Separator className="w-full" />
-            </div>
-            <div className="relative flex justify-center text-xs uppercase">
+         
+            {/* <div className="relative flex justify-center text-xs uppercase">
               <span className="bg-background px-2 text-muted-foreground">Or continue with</span>
-            </div>
+            </div> */}
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          {/* <div className="grid grid-cols-2 gap-4">
             <Button variant="outline" disabled={isLoading}>
               <svg
                 className="mr-2 h-4 w-4"
@@ -150,10 +153,10 @@ export default function LoginPage() {
               </svg>
               Google
             </Button>
-          </div>
+          </div> */}
         </div>
-        <p className="px-8 text-center text-sm text-muted-foreground">
-          Don&apos;t have an account?{" "}
+        <p className="px-8 text-center text-sm text-black font-bold">
+          Don&apos;t have an account yet?{" "} <br />
           <Link href="/auth/register" className="text-primary underline-offset-4 hover:underline">
             Sign up
           </Link>

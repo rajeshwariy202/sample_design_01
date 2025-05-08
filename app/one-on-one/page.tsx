@@ -69,12 +69,182 @@ export default function OneOnOnePage() {
     <div className="container py-12">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">1-on-1 Expert Guidance</h1>
+          <h1 className="text-4xl font-bold mb-4">1-on-1 Consultation</h1>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Book a private consultation with an expert. One-time fee. No hassle.
             Just results.
           </p>
         </div>
+       <div className="bg-gray-100 min-h-screen flex items-center justify-center px-6">
+      <div className="max-w-5xl bg-white shadow-lg rounded-lg p-6">
+        {/* Main Container - Responsive Layout */}
+     <div className="bg-gray-100 min-h-screen flex flex-col justify-center items-center px-6 py-12">
+      
+      {/* First Section */}
+      <div className="max-w-6xl bg-white shadow-lg rounded-lg p-6 flex flex-col lg:flex-row items-center gap-8">
+        
+        {/* Left - text */}
+          <div className="w-full lg:w-1/2 space-y-4 text-center lg:text-left">
+          <h1 className="text-3xl font-bold text-gray-900">Personalized Guidance, Tailored to You</h1>
+          <p className="text-gray-700">
+            Whether you're looking for expert advice, career direction, emotional support, or personal growth, our 1-on-1 consultations are designed to give you the focused attention you deserve.
+          </p>
+          <ul className="list-disc list-inside space-y-2 text-gray-700">
+            <li>A session built around your unique goals</li>
+            <li>Guidance from verified experts</li>
+            <li>A safe, confidential, and judgment-free environment</li>
+            <li>Flexible scheduling that fits your lifestyle</li>
+          </ul>
+        </div>
+{/* Right - image */}
+        <div className="w-full lg:w-1/2 flex justify-center">
+          <Image
+            src="/placeholder.svg" // Replace with actual image path
+            alt="Guidance Session"
+            width={500}
+            height={300}
+            className="rounded-lg shadow-md object-cover"
+          />
+        </div>
+
+        
+      
+
+      </div>
+
+      {/* Second Section */}
+      <div className="max-w-6xl bg-white shadow-lg rounded-lg p-6 flex flex-col lg:flex-row items-center gap-8 mt-10">
+        
+        {/* Left - Image */}
+        <div className="w-full lg:w-1/2 flex justify-center">
+          <Image
+            src="/placeholder.svg" // Replace with actual image path
+            alt="Expectation Image"
+            width={400}
+            height={300}
+            className="rounded-lg shadow-md object-cover"
+          />
+        </div>
+
+        {/* Right - Content */}
+        <div className="w-full lg:w-1/2 space-y-4 text-center lg:text-left">
+          <h2 className="text-xl font-bold text-gray-800">What You Can Expect</h2>
+          <ul className="space-y-3">
+            <li className="flex items-center gap-3">✅ <span>A dedicated session built around your unique goals</span></li>
+            <li className="flex items-center gap-3">✅ <span>Guidance from verified, experienced experts</span></li>
+            <li className="flex items-center gap-3">✅ <span>A safe, confidential, and judgment-free environment</span></li>
+            <li className="flex items-center gap-3">✅ <span>Flexible scheduling that fits your lifestyle</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+ <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      {/* First Card */}
+      <div className="flex flex-col md:flex-row bg-red shadow-lg rounded-lg overflow-hidden">
+        {/* Image Section */}
+        <div className="md:w-1/3">
+          <img
+            src="/placeholder.svg"
+            alt="Profile"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        
+        {/* Text Section */}
+        <div className="p-4 flex flex-col justify-between md:w-2/3">
+          <h2 className="text-xl font-semibold">Amanda Rivera</h2>
+          <p className="text-gray-600">Relationship Coach | Bilingual</p>
+          <div className="flex items-center mt-2">
+            <span className="text-yellow-500 text-lg">★ 4.9</span>
+          </div>
+          <p className="text-gray-700 mt-3">$8.00 per 10 min | $0.50 per question</p>
+          <div className="mt-4 flex space-x-3">
+            <button className="bg-blue-500 text-white px-4 py-2 rounded">Book Session</button>
+            <button className="bg-gray-200 text-gray-700 px-4 py-2 rounded">Ask a Question</button>
+          </div>
+        </div>
+      </div>
+
+      {/* Second Card */}
+      <div className="flex flex-col md:flex-row bg-white shadow-lg rounded-lg overflow-hidden">
+        {/* Image Section */}
+        <div className="md:w-1/3">
+          <img
+            src="/placeholder.svg"
+            alt="Profile"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        
+        {/* Text Section */}
+        <div className="p-6 flex flex-col justify-between md:w-2/3">
+          <h2 className="text-xl font-semibold">Jordan Smith</h2>
+          <p className="text-gray-600">Career Advisor | Life Coach</p>
+          <div className="flex items-center mt-2">
+            <span className="text-yellow-500 text-lg">★ 4.8</span>
+          </div>
+          <p className="text-gray-700 mt-3">$10.00 per 10 min | $0.75 per question</p>
+          <div className="mt-4 flex space-x-3">
+            <button className="bg-blue-500 text-white px-4 py-2 rounded">Book Session</button>
+            <button className="bg-gray-200 text-gray-700 px-4 py-2 rounded">Ask a Question</button>
+          </div>
+        </div>
+      </div>
+       <div className="flex flex-col md:flex-row bg-white shadow-lg rounded-lg overflow-hidden">
+        {/* Image Section */}
+        <div className="md:w-1/3">
+          <img
+            src="/placeholder.svg"
+            alt="Profile"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        
+        {/* Text Section */}
+        <div className="p-6 flex flex-col justify-between md:w-2/3">
+          <h2 className="text-xl font-semibold">Jordan Smith</h2>
+          <p className="text-gray-600">Career Advisor | Life Coach</p>
+          <div className="flex items-center mt-2">
+            <span className="text-yellow-500 text-lg">★ 4.8</span>
+          </div>
+          <p className="text-gray-700 mt-3">$10.00 per 10 min | $0.75 per question</p>
+          <div className="mt-4 flex space-x-3">
+            <button className="bg-blue-500 text-white px-4 py-2 rounded">Book Session</button>
+            <button className="bg-gray-200 text-gray-700 px-4 py-2 rounded">Ask a Question</button>
+          </div>
+        </div>
+      </div>
+       <div className="flex flex-col md:flex-row bg-white shadow-lg rounded-lg overflow-hidden">
+        {/* Image Section */}
+        <div className="md:w-1/3">
+          <img
+            src="/placeholder.svg"
+            alt="Profile"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        
+        {/* Text Section */}
+        <div className="p-6 flex flex-col justify-between md:w-2/3">
+          <h2 className="text-xl font-semibold">Jordan Smith</h2>
+          <p className="text-gray-600">Career Advisor | Life Coach</p>
+          <div className="flex items-center mt-2">
+            <span className="text-yellow-500 text-lg">★ 4.8</span>
+          </div>
+          <p className="text-gray-700 mt-3">$10.00 per 10 min | $0.75 per question</p>
+          <div className="mt-4 flex space-x-3">
+            <button className="bg-blue-500 text-white px-4 py-2 rounded">Book Session</button>
+            <button className="bg-gray-200 text-gray-700 px-4 py-2 rounded">Ask a Question</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      </div>
+    </div>
 
         <div className="bg-gradient-to-r from-gray-800 to-gray-900 text-white rounded-lg overflow-hidden mb-16">
           <div className="p-8 md:p-12">

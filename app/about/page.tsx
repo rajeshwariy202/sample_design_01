@@ -1,6 +1,6 @@
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function AboutPage() {
   const teamMembers = [
@@ -28,32 +28,96 @@ export default function AboutPage() {
       bio: "Certified executive coach with experience in leadership development and organizational psychology.",
       image: "/placeholder.svg?height=300&width=300",
     },
-  ]
+  ];
 
   return (
     <div className="container py-12">
       <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">About MetaMatch</h1>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Transforming the way people learn, connect, and grow through expert-led education and coaching.
-          </p>
-        </div>
+  <div className="max-w-6xl mx-auto p-6">
+  {/* Heading */}
+  <h1 className="text-4xl font-bold text-center mb-8">About Us</h1>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+  {/* About Section */}
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 items-center ">
+    <div className="space-y-4">
+      <h2 className="text-2xl font-bold text-gray-800">Empowering Lifelong Learners</h2>
+      <p className="text-gray-700">
+        Learning should be flexible, personalized, and engaging. We blend live classes,
+        on-demand courses, and expert sessions so you can learn at your pace.
+      </p>
+        
+      <p className="text-gray-700">
+        Learning should be flexible, personalized, and engaging. We blend live classes,
+        on-demand courses, and expert sessions so you can learn at your pace.
+      </p>
+    </div>
+    <div>
+      <img src="/placeholder.svg" alt="Learning" className="w-full h-auto rounded-lg shadow-md object-cover" />
+    </div>
+  </div>
+
+  {/* Our Mission */}
+<div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 items-center p-4 mt-8">
+  <div className="md:w-full">
+    <img
+      src="/placeholder.svg"
+      alt="Mission"
+      className="w-full h-auto rounded-lg shadow-md object-cover"
+    />
+  </div>
+  <div className="md:w-full text-center md:text-left space-y-4">
+    <h2 className="text-2xl font-bold text-gray-800">Our Mission</h2>
+    <p className="text-gray-700">
+      To make high-quality, expert-guided learning accessible, inclusive, and interactive—so every learner can succeed, no matter their background.
+    </p>
+     <p className="text-gray-700">
+      To make high-quality, expert-guided learning accessible, inclusive, and interactive—so every learner can succeed, no matter their background.
+    </p>
+  </div>
+  
+</div>
+
+  {/* Benefits */}
+  <div className="max-w-6xl mx-auto py-8 text-center space-y-6 bg-gray-100 rounded-lg shadow-md p-4 mt-8">
+    <h2 className="text-3xl font-bold text-gray-800">Our Benefits</h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="p-6 border rounded-lg shadow-md bg-blue-600">
+        <h3 className="text-xl font-semibold text-white">Learn From Experts</h3>
+        <p className="text-gray-100">Learn from licensed professionals, certified coaches, and seasoned industry leaders across multiple disciplines.</p>
+      </div>
+      <div className="p-6 border rounded-lg shadow-md bg-blue-600">
+        <h3 className="text-xl font-semibold text-white">Flexible Learning on Your Time</h3>
+        <p className="text-gray-100">Flexible learning options tailored to your needs—join live sessions, access recorded classes anytime, or schedule private coaching.</p>
+      </div>
+      <div className="p-6 border rounded-lg shadow-md bg-blue-600">
+        <h3 className="text-xl font-semibold text-white">Personalized Support</h3>
+        <p className="text-gray-100">Choose from live group classes, private 1-on-1 coaching, or self-paced modules to match your learning style.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        {/* <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
           <div>
             <h2 className="text-2xl font-bold mb-4">Our Story</h2>
             <p className="text-muted-foreground mb-4">
-              MetaMatch was founded in 2020 with a simple mission: to make high-quality education and professional
-              development accessible to everyone, regardless of location or background.
+              MetaMatch was founded in 2020 with a simple mission: to make
+              high-quality education and professional development accessible to
+              everyone, regardless of location or background.
             </p>
             <p className="text-muted-foreground mb-4">
-              What began as a small collection of online courses has grown into a comprehensive platform offering live
-              classes, recorded sessions, one-on-one coaching, and a vibrant community of learners and experts.
+              What began as a small collection of online courses has grown into
+              a comprehensive platform offering live classes, recorded sessions,
+              one-on-one coaching, and a vibrant community of learners and
+              experts.
             </p>
             <p className="text-muted-foreground">
-              Today, we serve thousands of students worldwide, connecting them with top experts in various fields and
-              providing the tools and resources they need to achieve their personal and professional goals.
+              Today, we serve thousands of students worldwide, connecting them
+              with top experts in various fields and providing the tools and
+              resources they need to achieve their personal and professional
+              goals.
             </p>
           </div>
           <div>
@@ -65,13 +129,14 @@ export default function AboutPage() {
               className="rounded-lg"
             />
           </div>
-        </div>
+        </div> */}
 
-        <div className="mb-16">
+        {/* <div className="mb-16">
           <div className="text-center mb-8">
             <h2 className="text-2xl font-bold mb-4">Our Mission & Values</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              We're guided by a set of core principles that inform everything we do.
+              We're guided by a set of core principles that inform everything we
+              do.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
@@ -96,8 +161,9 @@ export default function AboutPage() {
               </div>
               <h3 className="font-bold text-lg mb-2">Accessibility</h3>
               <p className="text-muted-foreground">
-                We believe that quality education should be available to everyone. We strive to make our platform
-                affordable, user-friendly, and accessible across devices and locations.
+                We believe that quality education should be available to
+                everyone. We strive to make our platform affordable,
+                user-friendly, and accessible across devices and locations.
               </p>
             </div>
             <div className="bg-card rounded-lg p-6 shadow-sm">
@@ -119,8 +185,9 @@ export default function AboutPage() {
               </div>
               <h3 className="font-bold text-lg mb-2">Excellence</h3>
               <p className="text-muted-foreground">
-                We are committed to providing the highest quality content and experiences. We carefully vet our
-                instructors and continuously improve our platform based on user feedback.
+                We are committed to providing the highest quality content and
+                experiences. We carefully vet our instructors and continuously
+                improve our platform based on user feedback.
               </p>
             </div>
             <div className="bg-card rounded-lg p-6 shadow-sm">
@@ -145,25 +212,32 @@ export default function AboutPage() {
               </div>
               <h3 className="font-bold text-lg mb-2">Community</h3>
               <p className="text-muted-foreground">
-                We foster a supportive environment where learners can connect, collaborate, and grow together. We
-                believe that learning is enhanced through meaningful interactions.
+                We foster a supportive environment where learners can connect,
+                collaborate, and grow together. We believe that learning is
+                enhanced through meaningful interactions.
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
 
-        <div className="mb-16">
+        {/* <div className="mb-16">
           <div className="text-center mb-8">
             <h2 className="text-2xl font-bold mb-4">Meet Our Team</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              The passionate individuals behind MetaMatch who are dedicated to transforming education.
+              The passionate individuals behind MetaMatch who are dedicated to
+              transforming education.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {teamMembers.map((member, index) => (
               <div key={index} className="text-center">
                 <div className="mb-4 relative w-48 h-48 mx-auto rounded-full overflow-hidden bg-muted">
-                  <Image src={member.image || "/placeholder.svg"} alt={member.name} fill className="object-cover" />
+                  <Image
+                    src={member.image || "/placeholder.svg"}
+                    alt={member.name}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
                 <h3 className="font-bold text-lg">{member.name}</h3>
                 <p className="text-primary mb-2">{member.role}</p>
@@ -171,14 +245,17 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
 
-        <div className="bg-blue-500 text-white rounded-lg overflow-hidden">
+        {/* <div className="bg-blue-500 text-white rounded-lg overflow-hidden">
           <div className="p-8 text-center">
-            <h2 className="text-2xl font-bold mb-4">Join Our Growing Community</h2>
+            <h2 className="text-2xl font-bold mb-4">
+              Join Our Growing Community
+            </h2>
             <p className="mb-6 max-w-2xl mx-auto">
-              Whether you're looking to learn, teach, or connect with like-minded professionals, MetaMatch has something
-              for you. Join our community today and take the next step in your journey.
+              Whether you're looking to learn, teach, or connect with
+              like-minded professionals, MetaMatch has something for you. Join
+              our community today and take the next step in your journey.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="secondary" asChild>
@@ -194,8 +271,8 @@ export default function AboutPage() {
               </Button>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
-  )
+  );
 }

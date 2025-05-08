@@ -1,5 +1,6 @@
 "use client"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import  Footer  from "../../components/footer"
 
 export default function FAQPage() {
   const faqs = [
@@ -69,10 +70,9 @@ export default function FAQPage() {
     <div className="container py-12">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">Frequently Asked Questions</h1>
-          <p className="text-muted-foreground">
-            Find answers to common questions about our platform, courses, and services.
-          </p>
+           <h1 className="text-4xl font-bold mb-4 text-center">Got Questions? We've Got Answers!</h1>
+      <p className="mb-6 text-center">Everything you need to know about live classes, subscriptions, and recorded lessons.</p>
+         
         </div>
 
         <Accordion type="single" collapsible className="w-full">
@@ -89,7 +89,7 @@ export default function FAQPage() {
           <p className="text-muted-foreground mb-6">
             Our support team is here to help. Contact us and we'll get back to you as soon as possible.
           </p>
-          <div className="flex justify-center gap-4">
+          <div className="flex justify-center gap-4 mb-10">
             <a
               href="mailto:support@metamatch.com"
               className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
@@ -105,6 +105,8 @@ export default function FAQPage() {
           </div>
         </div>
       </div>
+<Footer/>
+
     </div>
   )
 }

@@ -17,14 +17,22 @@ export default function ContactPage() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <Card>
+            <CardContent className="p-6 flex flex-col items-center text-center">
+              <div className="bg-primary/10 p-3 rounded-full mb-4">
+                <MapPin className="h-6 w-6 text-primary" />
+              </div>
+              <h3 className="font-bold mb-2">Address</h3>
+              <p className="font-medium">1234 Edision Street Suits 200</p>
+            </CardContent>
+          </Card>
           <Card>
             <CardContent className="p-6 flex flex-col items-center text-center">
               <div className="bg-primary/10 p-3 rounded-full mb-4">
                 <Phone className="h-6 w-6 text-primary" />
               </div>
               <h3 className="font-bold mb-2">Phone</h3>
-              <p className="text-muted-foreground mb-4">Our support team is available Monday-Friday, 9am-5pm EST</p>
-              <p className="font-medium">+1 (555) 123-4567</p>
+              <p className="font-medium">(123) 456-7890</p>
             </CardContent>
           </Card>
           <Card>
@@ -33,20 +41,10 @@ export default function ContactPage() {
                 <Mail className="h-6 w-6 text-primary" />
               </div>
               <h3 className="font-bold mb-2">Email</h3>
-              <p className="text-muted-foreground mb-4">We'll respond to your inquiry within 24 hours</p>
-              <p className="font-medium">support@metamatch.com</p>
+              <p className="font-medium">info@altelectric.com</p>
             </CardContent>
           </Card>
-          <Card>
-            <CardContent className="p-6 flex flex-col items-center text-center">
-              <div className="bg-primary/10 p-3 rounded-full mb-4">
-                <MapPin className="h-6 w-6 text-primary" />
-              </div>
-              <h3 className="font-bold mb-2">Office</h3>
-              <p className="text-muted-foreground mb-4">Visit our headquarters</p>
-              <p className="font-medium">123 Learning Lane, Education City, CA 94103</p>
-            </CardContent>
-          </Card>
+        
         </div>
 
         <div className="grid md:grid-cols-2 gap-12">
@@ -55,63 +53,38 @@ export default function ContactPage() {
             <form className="space-y-6">
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="first-name">First Name</Label>
-                  <Input id="first-name" placeholder="John" />
+                
+                  <Input id="first-name" placeholder="Name" />
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="last-name">Last Name</Label>
-                  <Input id="last-name" placeholder="Doe" />
-                </div>
+                
               </div>
               <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" placeholder="john.doe@example.com" />
+                <Input id="email" type="email"  placeholder="Email" />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="subject">Subject</Label>
-                <Input id="subject" placeholder="How can we help you?" />
+                
+                <Input id="number" placeholder="Phone Number" />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="message">Message</Label>
-                <Textarea id="message" placeholder="Please provide details about your inquiry..." rows={5} />
+               
+                <Textarea id="message" placeholder="Add Summary" rows={5} />
               </div>
               <Button type="submit" className="w-full">
                 Send Message
               </Button>
             </form>
           </div>
-          <div>
-            <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
-            <div className="space-y-6">
-              <div>
-                <h3 className="font-bold mb-2">What are your business hours?</h3>
-                <p className="text-muted-foreground">
-                  Our support team is available Monday through Friday, from 9:00 AM to 5:00 PM Eastern Standard Time.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-bold mb-2">How quickly will I receive a response?</h3>
-                <p className="text-muted-foreground">
-                  We strive to respond to all inquiries within 24 hours during business days. For urgent matters, please
-                  call our support line.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-bold mb-2">Can I schedule a demo of your platform?</h3>
-                <p className="text-muted-foreground">
-                  Yes! We offer personalized demos for individuals and organizations. Please fill out the contact form
-                  and specify that you're interested in a demo.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-bold mb-2">Do you offer technical support for students?</h3>
-                <p className="text-muted-foreground">
-                  Yes, we provide technical support for all registered students. You can reach our technical support
-                  team via email or phone during business hours.
-                </p>
-              </div>
-            </div>
-          </div>
+         <div>
+    <h2 className="text-2xl font-bold mb-6">Our Location</h2>
+    <div className="rounded-lg overflow-hidden shadow-md">
+      <iframe
+        className="w-full h-[400px] border-none"
+        src="https://www.google.com/maps?q=12.98323231986023, 77.52664609243219&hl=es&z=14&output=embed"
+        allowFullScreen
+        loading="lazy"
+      ></iframe>
+    </div>
+  </div>
         </div>
       </div>
     </div>
