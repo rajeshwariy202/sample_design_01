@@ -1,6 +1,9 @@
+import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
+
+
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className="bg-gray-900 text-white py-12 w-full">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
         
         {/* Company Section */}
@@ -36,12 +39,20 @@ const Footer = () => {
 
       {/* Social Media & Copyright Section */}
       <div className="text-center mt-8 border-t border-gray-700 pt-6">
-        <div className="flex justify-center space-x-6 mb-4">
-          <a href="#" className="text-xl hover:text-gray-400">🔵</a>  {/* Facebook */}
-          <a href="#" className="text-xl hover:text-gray-400">🐦</a>  {/* Twitter */}
-          <a href="#" className="text-xl hover:text-gray-400">🔗</a>  {/* LinkedIn */}
-          <a href="#" className="text-xl hover:text-gray-400">📷</a>  {/* Instagram */}
-        </div>
+       <div className="flex justify-center space-x-6 mb-4">
+            <a href="#" aria-label="Facebook" className="text-2xl text-blue-600 hover:text-blue-800">
+              <FaFacebookF />
+            </a>
+            <a href="#" aria-label="Twitter" className="text-2xl text-blue-400 hover:text-blue-600">
+              <FaTwitter />
+            </a>
+            <a href="#" aria-label="LinkedIn" className="text-2xl text-blue-700 hover:text-blue-900">
+              <FaLinkedinIn />
+            </a>
+            <a href="#" aria-label="Instagram" className="text-2xl text-pink-500 hover:text-pink-700">
+              <FaInstagram />
+            </a>
+          </div>
         <p className="text-sm">&copy; 2025 Copyrights. All rights reserved by Metamatch</p>
         <p className="text-xs mt-2 space-x-4">
           <a href="#" className="hover:text-gray-400">Cookie Preference</a> | 

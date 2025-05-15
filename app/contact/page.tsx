@@ -4,9 +4,11 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
 import { Mail, MapPin, Phone } from "lucide-react"
+import Footer from "@/components/footer"
 
 export default function ContactPage() {
   return (
+    <>
     <div className="container py-12">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
@@ -88,5 +90,7 @@ export default function ContactPage() {
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   )
 }

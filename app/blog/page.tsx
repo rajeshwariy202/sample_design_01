@@ -1,10 +1,13 @@
+'use client';
+
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import Footer from "@/components/footer";
 
 export default function BlogPage() {
-  const blogPosts = [
+    const blogPosts = [
     {
       id: 1,
       title: "10 Essential Tips for Online Learning Success",
@@ -66,67 +69,69 @@ export default function BlogPage() {
       image: "/placeholder.svg?height=200&width=400",
     },
   ];
-
   return (
-    <div className="container py-12">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4">Blog & Resources</h1>
-        <p className="text-muted-foreground max-w-2xl mx-auto">
-          Explore our latest articles, tutorials, and insights to enhance your
-          learning journey and stay updated with educational trends.
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {blogPosts.map((post) => (
-          <Card key={post.id} className="overflow-hidden">
-            <div className="relative h-48">
-              <Image
-                src={post.image || "/placeholder.svg"}
-                alt={post.title}
-                fill
-                className="object-cover"
-              />
-            </div>
-            <CardContent className="p-6">
-              <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
-                <span>{post.category}</span>
-                <span>•</span>
-                <span>{post.date}</span>
-              </div>
-              <h2 className="text-xl font-bold mb-2">{post.title}</h2>
-              <p className="text-muted-foreground mb-4">{post.excerpt}</p>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-primary/20"></div>
-                  <span className="text-sm font-medium">{post.author}</span>
-                </div>
-                <Button variant="ghost" size="sm" asChild>
-                  <Link href="/blog-details">Read More →</Link>
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-
-      <div className="mt-12 text-center">
-        <h2 className="text-2xl font-bold mb-6">Subscribe to Our Newsletter</h2>
-        <div className="max-w-md mx-auto">
-          <p className="text-muted-foreground mb-4">
-            Stay updated with our latest articles, courses, and educational
-            resources delivered straight to your inbox. Never miss an update!
+    <div className="flex flex-col min-h-screen">
+      <main className="flex-1 container mx-auto px-4 py-12">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold mb-4">Blog & Resources</h1>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Explore our latest articles, tutorials, and insights to enhance your learning journey and stay updated with educational trends.
           </p>
-          <div className="flex gap-2">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-            />
-            <Button>Subscribe</Button>
+        </div>
+
+        <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {blogPosts.map((post) => (
+            <Card key={post.id} className="overflow-hidden">
+              <div className="relative h-48">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <CardContent className="p-6">
+                <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                  <span>{post.category}</span>
+                  <span>•</span>
+                  <span>{post.date}</span>
+                </div>
+                <h2 className="text-xl font-bold mb-2">{post.title}</h2>
+                <p className="text-muted-foreground mb-4">{post.excerpt}</p>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-full bg-primary/20" />
+                    <span className="text-sm font-medium">{post.author}</span>
+                  </div>
+                  <Button variant="ghost" size="sm" asChild>
+                    <Link href="/blog-details">Read More →</Link>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <h2 className="text-2xl font-bold mb-6">Subscribe to Our Newsletter</h2>
+          <div className="max-w-md mx-auto">
+            <p className="text-muted-foreground mb-4">
+              Stay updated with our latest articles, courses, and educational resources delivered straight to your inbox. Never miss an update!
+            </p>
+            <div className="flex gap-2">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="flex h-10 w-full rounded-md border border-input bg-background px-3 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+              />
+              <Button>Subscribe</Button>
+            </div>
           </div>
         </div>
-      </div>
+      </main>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

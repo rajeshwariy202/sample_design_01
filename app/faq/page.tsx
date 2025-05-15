@@ -67,6 +67,7 @@ export default function FAQPage() {
   ]
 
   return (
+    <>
     <div className="container py-12">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-12">
@@ -105,8 +106,10 @@ export default function FAQPage() {
           </div>
         </div>
       </div>
-<Footer/>
 
     </div>
+<Footer/>
+
+    </>
   )
 }

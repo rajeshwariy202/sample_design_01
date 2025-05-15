@@ -1,67 +1,88 @@
-"use client"
+'use client';
 
-import { Menu } from "lucide-react"
-import Link from "next/link"
-import { useState } from "react"
-import { usePathname } from "next/navigation"
+import { useState, useRef, useEffect } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import {
+  LogOut,
+  ClipboardList,
+  Heart,
+  ShoppingCart,
+  Grid,
+  Menu as MenuIcon,
+} from 'lucide-react';
 
-import { ModeToggle } from "@/components/mode-toggle"
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import profilePic from '../images/profile.png';
+import { Button } from '@/components/ui/button';
+import { ModeToggle } from '@/components/mode-toggle';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { cn } from '@/lib/utils';
 
 interface MainNavProps {
-  className?: string
+  className?: string;
 }
 
 export function MainNav({ className }: MainNavProps) {
-  const [isOpen, setIsOpen] = useState(false)
-  const pathname = usePathname()
+  const [isOpen, setIsOpen] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
+  const profileRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+
+  // close profile menu on outside click
+  useEffect(() => {
+    function onClick(e: MouseEvent) {
+      if (profileRef.current && !profileRef.current.contains(e.target as Node)) {
+        setProfileOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', onClick);
+    return () => document.removeEventListener('mousedown', onClick);
+  }, []);
 
   const routes = [
     {
-      label: "Main",
+      label: 'Main',
       items: [
-        { href: "/", label: "Home" },
-        { href: "/courses", label: "Courses" },
-        { href: "/live-classes", label: "Live Classes" },
-        { href: "/recorded-classes", label: "Recorded Classes" },
+        { href: '/', label: 'Home' },
+        { href: '/courses', label: 'Courses' },
+        { href: '/live-classes', label: 'Live Classes' },
+        { href: '/recorded-classes', label: 'Recorded Classes' },
       ],
     },
     {
-      label: "Content",
+      label: 'Content',
       items: [
-        { href: "/blog", label: "Blog" },
-        { href: "/discussion-forum", label: "Discussion Forum" },
-        { href: "/quiz-contest", label: "Quiz Contest" },
+        { href: '/blog', label: 'Blog' },
+        { href: '/discussion-forum', label: 'Discussion Forum' },
+        { href: '/quiz-contest', label: 'Quiz Contest' },
       ],
     },
     {
-      label: "Coaching",
+      label: 'Coaching',
       items: [
-        { href: "/become-coach", label: "Become a Coach" },
-        { href: "/coach-guidelines", label: "Coach Guidelines" },
-        { href: "/one-on-one", label: "1-on-1 Consulting" },
-        { href: "/book-session", label: "Book a Session" },
+        { href: '/become-coach', label: 'Become a Coach' },
+        { href: '/coach-guidelines', label: 'Coach Guidelines' },
+        { href: '/one-on-one', label: '1-on-1 Consulting' },
+        { href: '/book-session', label: 'Book a Session' },
       ],
     },
     {
-      label: "Company",
+      label: 'Company',
       items: [
-        { href: "/about", label: "About Us" },
-        { href: "/contact", label: "Contact" },
-        { href: "/faq", label: "FAQ" },
-        { href: "/membership", label: "Membership" },
+        { href: '/about', label: 'About Us' },
+        { href: '/contact', label: 'Contact' },
+        { href: '/faq', label: 'FAQ' },
+        { href: '/membership', label: 'Membership' },
       ],
     },
-  ]
+  ];
 
   return (
     <header className="sticky top-0 z-50 w-full shadow-sm">
       {/* Top Promo Banner */}
       <div className="bg-[#2e2a72] text-white py-2 px-4 text-center">
         <span className="text-sm font-medium">
-          TODAY&apos;S SPECIAL: Get a Discount of 20% for every Course. Offer Valid for Today!
+          TODAY&apos;S SPECIAL: 20% off every course! Today only.
         </span>
       </div>
 
@@ -72,22 +93,31 @@ export function MainNav({ className }: MainNavProps) {
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="md:hidden">
-                <Menu className="h-5 w-5" />
+                <MenuIcon className="h-5 w-5" />
                 <span className="sr-only">Toggle menu</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="left" className="p-0 w-[280px]">
               <div className="flex flex-col h-full">
+                {/* Logo */}
                 <div className="p-4 border-b">
-                  <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center space-x-2">
+                  <Link
+                    href="/"
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center space-x-2"
+                  >
                     <span className="font-bold text-xl text-primary">Meta</span>
                     <span className="text-xl font-semibold">Match</span>
                   </Link>
                 </div>
-                <div className="overflow-y-auto h-[calc(100vh-160px)] p-4">
+
+                {/* Nav Sections */}
+                <div className="overflow-y-auto flex-1 p-4 space-y-6">
                   {routes.map((section) => (
-                    <div key={section.label} className="mb-6">
-                      <h4 className="text-sm font-medium text-muted-foreground mb-2">{section.label}</h4>
+                    <div key={section.label}>
+                      <h4 className="text-sm font-medium text-muted-foreground mb-2">
+                        {section.label}
+                      </h4>
                       <div className="space-y-1">
                         {section.items.map((item) => (
                           <Link
@@ -95,10 +125,10 @@ export function MainNav({ className }: MainNavProps) {
                             href={item.href}
                             onClick={() => setIsOpen(false)}
                             className={cn(
-                              "block py-2 px-3 rounded-md text-sm",
+                              'block py-2 px-3 rounded-md text-sm',
                               pathname === item.href
-                                ? "bg-primary/10 text-primary font-medium"
-                                : "text-foreground hover:bg-muted"
+                                ? 'bg-primary/10 text-primary font-medium'
+                                : 'text-foreground hover:bg-muted'
                             )}
                           >
                             {item.label}
@@ -108,25 +138,27 @@ export function MainNav({ className }: MainNavProps) {
                     </div>
                   ))}
                 </div>
-                <div className="p-4 border-t mt-auto">
-                  <div className="flex items-center justify-between">
-                    <ModeToggle />
-                    <div className="flex gap-2">
-                      <Link href="/auth/login" onClick={() => setIsOpen(false)}>
-                        <Button variant="outline" size="sm">Sign In</Button>
-                      </Link>
-                      <Link href="/auth/register" onClick={() => setIsOpen(false)}>
-                        <Button size="sm">Sign Up</Button>
-                      </Link>
-                    </div>
-                  </div>
+
+                {/* Footer */}
+                <div className="p-4 border-t">
+                  <ModeToggle className="mb-4" />
+                  <Link href="/auth/login" onClick={() => setIsOpen(false)}>
+                    <Button variant="outline" size="sm" className="w-full mb-2">
+                      Sign In
+                    </Button>
+                  </Link>
+                  <Link href="/auth/register" onClick={() => setIsOpen(false)}>
+                    <Button size="sm" className="w-full">
+                      Sign Up
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </SheetContent>
           </Sheet>
 
           {/* Logo */}
-          <Link href="/" className="flex items-center text-xl font-bold">
+          <Link href="/" className="hidden md:flex items-center text-xl font-bold">
             <span className="text-primary">Meta</span>
             <span>Match</span>
           </Link>
@@ -135,7 +167,9 @@ export function MainNav({ className }: MainNavProps) {
           <nav className="hidden md:flex items-center gap-6 ml-10">
             {routes.map((section) => (
               <div key={section.label} className="relative group">
-                <span className="text-sm font-medium text-muted-foreground group-hover:text-primary cursor-default">
+                <span
+                  className="text-sm font-medium text-muted-foreground group-hover:text-primary cursor-default"
+                >
                   {section.label}
                 </span>
                 <div className="absolute left-0 top-full mt-2 bg-white border rounded-md shadow-md opacity-0 group-hover:opacity-100 group-hover:visible invisible transition-all z-50 min-w-[180px]">
@@ -145,10 +179,10 @@ export function MainNav({ className }: MainNavProps) {
                         key={item.href}
                         href={item.href}
                         className={cn(
-                          "block px-4 py-2 rounded-md text-sm whitespace-nowrap",
+                          'block px-4 py-2 rounded-md text-sm whitespace-nowrap',
                           pathname === item.href
-                            ? "bg-primary/10 text-primary font-medium"
-                            : "hover:bg-muted text-foreground"
+                            ? 'bg-primary/10 text-primary font-medium'
+                            : 'hover:bg-muted text-foreground'
                         )}
                       >
                         {item.label}
@@ -163,7 +197,7 @@ export function MainNav({ className }: MainNavProps) {
 
         {/* Right Side Buttons */}
         <div className="hidden md:flex items-center gap-4">
-          {/* Optional Currency Selector */}
+          {/* Currency Selector */}
           <div className="flex items-center text-sm text-muted-foreground">
             <span className="mr-1">USD</span>
             <svg
@@ -182,11 +216,108 @@ export function MainNav({ className }: MainNavProps) {
             </svg>
           </div>
 
+          {/* Log in */}
           <Link href="/auth/login">
-            <Button className="bg-[#2196f3] hover:bg-[#1976d2] text-white">Log in</Button>
+            <Button className="bg-[#2196f3] hover:bg-[#1976d2] text-white">
+              Log in
+            </Button>
           </Link>
+
+          {/* Profile Avatar + Dropdown */}
+          <div
+            ref={profileRef}
+            className="relative"
+            onMouseEnter={() => setProfileOpen(true)}
+            onMouseLeave={() => setProfileOpen(false)}
+          >
+            <button
+              onClick={() => setProfileOpen((v) => !v)}
+              className="w-8 h-8 rounded-full overflow-hidden hover:ring-2 ring-primary transition"
+            >
+              <img
+                src={profilePic.src}
+                alt="Profile"
+                className="object-cover w-full h-full"
+              />
+            </button>
+
+            {profileOpen && (
+              <div
+                className="
+                  absolute right-0 mt-2 w-56
+                  bg-white border border-gray-200 rounded-lg shadow-lg
+                  transition
+                  before:absolute before:-top-2 before:right-4
+                  before:border-8 before:border-x-transparent
+                  before:border-t-transparent before:border-b-white
+                "
+              >
+                {/* Profile Header */}
+                <div className="px-4 py-3 border-b flex items-center gap-3">
+                  <img
+                    src={profilePic.src}
+                    alt="Profile"
+                    className="w-8 h-8 rounded-full object-cover"
+                  />
+                  <div>
+                    <p className="font-medium">Jonathon Smith</p>
+                    <p className="text-xs text-gray-500">
+                      jonathonsmith@gmail.com
+                    </p>
+                  </div>
+                </div>
+
+                {/* Menu Links */}
+                <nav className="py-2">
+                  <MenuItem href="/dashboard" icon={<Grid className="w-5 h-5" />}>
+                    Dashboard
+                  </MenuItem>
+                  <MenuItem href="/orders" icon={<ShoppingCart className="w-5 h-5" />}>
+                    Order History
+                  </MenuItem>
+                  <MenuItem href="/e-course" icon={<ClipboardList className="w-5 h-5" />}>
+                    Enrolled Courses
+                  </MenuItem>
+                  <MenuItem href="/wishlist" icon={<Heart className="w-5 h-5" />}>
+                    Wishlist
+                  </MenuItem>
+                  <MenuItem href="/quizzes" icon={<ClipboardList className="w-5 h-5" />}>
+                    My Quiz Attempts
+                  </MenuItem>
+                </nav>
+
+                {/* Logout */}
+                <div className="px-4 py-2 border-t" >
+                  <button className="w-full flex items-center gap-2 text-sm text-red-600 hover:text-red-800">
+                    <LogOut className="w-5 h-5"/>
+                    Logout
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </header>
-  )
+  );
+}
+
+function MenuItem({
+  href,
+  icon,
+  children,
+}: {
+  href: string;
+  icon: JSX.Element;
+  children: React.ReactNode;
+}) {
+  return (
+    <Link
+      href={href}
+      className="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+    >
+      {icon}
+      <span>{children}</span>
+    </Link>
+  );
 }

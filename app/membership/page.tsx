@@ -2,9 +2,11 @@ import { Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import Footer from "@/components/footer"
 
 export default function MembershipPage() {
   return (
+    <>
     <div className="container py-12">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
@@ -318,5 +320,7 @@ export default function MembershipPage() {
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   )
 }

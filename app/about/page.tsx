@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Footer from "@/components/footer";
 
 export default function AboutPage() {
   const teamMembers = [
@@ -31,6 +32,7 @@ export default function AboutPage() {
   ];
 
   return (
+    <>
     <div className="container py-12">
       <div className="max-w-5xl mx-auto">
   <div className="max-w-6xl mx-auto p-6">
@@ -96,6 +98,7 @@ export default function AboutPage() {
     </div>
   </div>
 </div>
+
 
 
 
@@ -274,5 +277,7 @@ export default function AboutPage() {
         </div> */}
       </div>
     </div>
+     <Footer />
+    </>
   );
 }
