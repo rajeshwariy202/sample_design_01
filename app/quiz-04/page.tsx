@@ -9,7 +9,6 @@ export default function Quiz04Page() {
     <div className="w-full min-h-screen p-6 bg-gray-100 flex justify-center items-center">
       <div className="bg-white p-10 rounded-lg shadow-lg w-full max-w-5xl">
         <h2 className="text-3xl font-bold text-center mb-6">Quiz 04: Advanced Arithmetic</h2>
-
         {/* Instructions Section */}
         <div className="bg-gray-200 p-6 rounded-lg mb-6">
           <h3 className="text-xl font-semibold text-blue-600 text-center">Instructions</h3>

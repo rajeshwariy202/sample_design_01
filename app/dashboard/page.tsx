@@ -1,13 +1,31 @@
-'use client';
+"use client";
 
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import Footer from '@/components/footer';
+import Footer from "@/components/footer";
+
+type FormData = {
+  firstName: string;
+  lastName: string;
+  username: string;
+  phoneNumber: string;
+  gender: string;
+  dob: Date | null;
+  shortBio: string;
+  currentPassword: string;
+  newPassword: string;
+  confirmPassword: string;
+  email: string;
+  newEmail: string;
+};
 
 export default function PersonalSettings() {
-  const [activeTab, setActiveTab] = useState("personal");
-  const [formData, setFormData] = useState({
+  const [activeTab, setActiveTab] = useState<"personal" | "security">(
+    "personal"
+  );
+
+  const [formData, setFormData] = useState<FormData>({
     firstName: "Jonathon",
     lastName: "Smith",
     username: "studentjona",
@@ -22,7 +40,11 @@ export default function PersonalSettings() {
     newEmail: "",
   });
 
-  const handleChange = (e) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -34,7 +56,9 @@ export default function PersonalSettings() {
           <div className="flex border-b mb-6 text-lg">
             <button
               className={`w-1/2 text-center py-3 font-semibold ${
-                activeTab === "personal" ? "border-b-2 border-blue-500" : "text-gray-600"
+                activeTab === "personal"
+                  ? "border-b-2 border-blue-500"
+                  : "text-gray-600"
               }`}
               onClick={() => setActiveTab("personal")}
             >
@@ -42,7 +66,9 @@ export default function PersonalSettings() {
             </button>
             <button
               className={`w-1/2 text-center py-3 ${
-                activeTab === "security" ? "border-b-2 border-blue-500" : "text-gray-600"
+                activeTab === "security"
+                  ? "border-b-2 border-blue-500"
+                  : "text-gray-600"
               }`}
               onClick={() => setActiveTab("security")}
             >
@@ -52,18 +78,22 @@ export default function PersonalSettings() {
 
           {activeTab === "personal" ? (
             <>
-              <h1 className="text-2xl font-bold text-center mb-4">Personal Settings</h1>
+              <h1 className="text-2xl font-bold text-center mb-4">
+                Personal Settings
+              </h1>
               <form className="space-y-5">
-                {[
-                  "firstName",
-                  "lastName",
-                  "username",
-                  "phoneNumber",
-                  "gender",
-                ].map((field) => (
+                {(
+                  [
+                    "firstName",
+                    "lastName",
+                    "username",
+                    "phoneNumber",
+                    "gender",
+                  ] as (keyof FormData)[]
+                ).map((field) => (
                   <div key={field} className="w-full">
                     <label className="block text-gray-700 text-lg">
-                      {field.replace(/([A-Z])/g, ' $1')}
+                      {field.replace(/([A-Z])/g, " $1")}
                     </label>
                     {field === "gender" ? (
                       <select
@@ -83,7 +113,11 @@ export default function PersonalSettings() {
                         name={field}
                         className="w-full px-4 py-3 border rounded-md text-lg"
                         onChange={handleChange}
-                        value={formData[field]}
+                        value={
+                          formData[field] instanceof Date
+                            ? formData[field].toISOString().split("T")[0] // format for date inputs
+                            : formData[field] ?? ""
+                        }
                       />
                     )}
                   </div>
@@ -96,7 +130,9 @@ export default function PersonalSettings() {
                   </label>
                   <DatePicker
                     selected={formData.dob}
-                    onChange={(date) => setFormData({ ...formData, dob: date })}
+                    onChange={(date: Date | null) => {
+                      setFormData({ ...formData, dob: date });
+                    }}
                     className="w-full px-4 py-3 border rounded-md text-lg"
                     dateFormat="dd/MM/yyyy"
                     showYearDropdown
@@ -107,7 +143,9 @@ export default function PersonalSettings() {
 
                 {/* Short Bio */}
                 <div className="w-full">
-                  <label className="block text-gray-700 text-lg">Short Bio</label>
+                  <label className="block text-gray-700 text-lg">
+                    Short Bio
+                  </label>
                   <input
                     type="text"
                     name="shortBio"
@@ -127,24 +165,34 @@ export default function PersonalSettings() {
             </>
           ) : (
             <>
-              <h1 className="text-2xl font-bold text-center mb-4">Security Settings</h1>
+              <h1 className="text-2xl font-bold text-center mb-4">
+                Security Settings
+              </h1>
               <form className="space-y-5">
-                {["currentPassword", "newPassword", "confirmPassword"].map(
-                  (field) => (
-                    <div key={field} className="w-full">
-                      <label className="block text-gray-700 text-lg">
-                        {field.replace(/([A-Z])/g, ' $1')}
-                      </label>
-                      <input
-                        type="password"
-                        name={field}
-                        className="w-full px-4 py-3 border rounded-md text-lg"
-                        onChange={handleChange}
-                        value={formData[field]}
-                      />
-                    </div>
-                  )
-                )}
+                {(
+                  [
+                    "currentPassword",
+                    "newPassword",
+                    "confirmPassword",
+                  ] as (keyof FormData)[]
+                ).map((field) => (
+                  <div key={field} className="w-full">
+                    <label className="block text-gray-700 text-lg">
+                      {field.replace(/([A-Z])/g, " $1")}
+                    </label>
+                    <input
+                      type="password"
+                      name={field}
+                      className="w-full px-4 py-3 border rounded-md text-lg"
+                      onChange={handleChange}
+                      value={
+                        formData[field] instanceof Date
+                          ? (formData[field] as Date).toISOString()
+                          : formData[field] ?? ""
+                      }
+                    />
+                  </div>
+                ))}
 
                 {/* Email Change */}
                 <div className="w-full">

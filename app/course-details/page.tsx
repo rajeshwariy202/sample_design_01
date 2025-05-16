@@ -1,8 +1,9 @@
-import Image from "next/image"
-import { ChevronDown, Play, Star } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import Image from "next/image";
+import { ChevronDown, Play, Star } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import Footer from "@/components/footer";
 
 export default function CourseDetailPage() {
   return (
@@ -10,7 +11,9 @@ export default function CourseDetailPage() {
       <div className="container px-4 py-8">
         <div className="grid gap-8 md:grid-cols-3">
           <div className="md:col-span-2">
-            <h1 className="text-3xl font-bold mb-4">Building Agentic AI Applications with a Problem-First Approach</h1>
+            <h1 className="text-3xl font-bold mb-4">
+              Building Agentic AI Applications with a Problem-First Approach
+            </h1>
             <div className="flex items-center gap-4 mb-6">
               <div className="flex text-yellow-400">
                 <Star className="w-5 h-5 fill-current" />
@@ -27,17 +30,24 @@ export default function CourseDetailPage() {
             </div>
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 rounded-full bg-primary/20 overflow-hidden">
-                <Image src="/placeholder.svg?height=48&width=48" alt="Instructor" width={48} height={48} />
+                <Image
+                  src="/placeholder.svg?height=48&width=48"
+                  alt="Instructor"
+                  width={48}
+                  height={48}
+                />
               </div>
               <div>
                 <div className="font-medium">Jack Nickolson</div>
-                <div className="text-sm text-muted-foreground">AI Researcher & Developer</div>
+                <div className="text-sm text-muted-foreground">
+                  AI Researcher & Developer
+                </div>
               </div>
             </div>
 
             <div className="aspect-video bg-muted rounded-lg overflow-hidden mb-8">
               <Image
-             src="/placeholder.svg?height=48&width=48"
+                src="/placeholder.svg?height=48&width=48"
                 alt="Course thumbnail"
                 width={800}
                 height={450}
@@ -56,11 +66,13 @@ export default function CourseDetailPage() {
                 <div>
                   <h2 className="text-2xl font-bold mb-4">Course Overview</h2>
                   <p className="text-muted-foreground mb-4">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ut dictum quam. Curabitur pharetra
-                    rhoncus varius. Curabitur egestas in orci ut finibus. Proin facilisis risus id nisl mollis, a
-                    gravida turpis pretium. Sed ac dapibus diam, et fringilla felis. Donec nec ex turpis. Integer eget
-                    sagittis quam, et aliquam massa. Morbi eu rhoncus odio. Ut id velit ut elit rhoncus vehicula at quis
-                    enim.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Mauris ut dictum quam. Curabitur pharetra rhoncus varius.
+                    Curabitur egestas in orci ut finibus. Proin facilisis risus
+                    id nisl mollis, a gravida turpis pretium. Sed ac dapibus
+                    diam, et fringilla felis. Donec nec ex turpis. Integer eget
+                    sagittis quam, et aliquam massa. Morbi eu rhoncus odio. Ut
+                    id velit ut elit rhoncus vehicula at quis enim.
                   </p>
                   <h3 className="text-xl font-bold mb-2">What You'll Learn</h3>
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-6">
@@ -80,7 +92,9 @@ export default function CourseDetailPage() {
                         <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                         <path d="m9 11 3 3L22 4" />
                       </svg>
-                      <span>Build AI applications that solve real-world problems</span>
+                      <span>
+                        Build AI applications that solve real-world problems
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <svg
@@ -98,7 +112,9 @@ export default function CourseDetailPage() {
                         <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
                         <path d="m9 11 3 3L22 4" />
                       </svg>
-                      <span>Implement agentic AI systems with modern frameworks</span>
+                      <span>
+                        Implement agentic AI systems with modern frameworks
+                      </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <svg
@@ -153,7 +169,9 @@ export default function CourseDetailPage() {
                       <div className="flex justify-between items-center p-4 bg-muted/50 cursor-pointer">
                         <div>
                           <h3 className="font-bold">Introduction</h3>
-                          <div className="text-sm text-muted-foreground">Duration: 30:00 min</div>
+                          <div className="text-sm text-muted-foreground">
+                            Duration: 30:00 min
+                          </div>
                         </div>
                         <ChevronDown className="h-5 w-5" />
                       </div>
@@ -165,8 +183,12 @@ export default function CourseDetailPage() {
                           <div className="flex-1">
                             <div className="flex justify-between">
                               <div>
-                                <h4 className="font-medium">Video: Course Intro</h4>
-                                <div className="text-sm text-muted-foreground">15 min</div>
+                                <h4 className="font-medium">
+                                  Video: Course Intro
+                                </h4>
+                                <div className="text-sm text-muted-foreground">
+                                  15 min
+                                </div>
                               </div>
                               <Button variant="ghost" size="sm">
                                 Preview
@@ -181,8 +203,12 @@ export default function CourseDetailPage() {
                           <div className="flex-1">
                             <div className="flex justify-between">
                               <div>
-                                <h4 className="font-medium">Video: Course Step 1</h4>
-                                <div className="text-sm text-muted-foreground">05 min</div>
+                                <h4 className="font-medium">
+                                  Video: Course Step 1
+                                </h4>
+                                <div className="text-sm text-muted-foreground">
+                                  05 min
+                                </div>
                               </div>
                               <Button variant="ghost" size="sm">
                                 Preview
@@ -197,8 +223,12 @@ export default function CourseDetailPage() {
                           <div className="flex-1">
                             <div className="flex justify-between">
                               <div>
-                                <h4 className="font-medium">Video: Course Step 2</h4>
-                                <div className="text-sm text-muted-foreground">10 min</div>
+                                <h4 className="font-medium">
+                                  Video: Course Step 2
+                                </h4>
+                                <div className="text-sm text-muted-foreground">
+                                  10 min
+                                </div>
                               </div>
                               <Button variant="ghost" size="sm">
                                 Preview
@@ -212,7 +242,9 @@ export default function CourseDetailPage() {
                       <div className="flex justify-between items-center p-4 bg-muted/50 cursor-pointer">
                         <div>
                           <h3 className="font-bold">Goals & More</h3>
-                          <div className="text-sm text-muted-foreground">Duration: 30:00 min</div>
+                          <div className="text-sm text-muted-foreground">
+                            Duration: 30:00 min
+                          </div>
                         </div>
                         <ChevronDown className="h-5 w-5" />
                       </div>
@@ -220,8 +252,12 @@ export default function CourseDetailPage() {
                     <div className="border rounded-lg overflow-hidden">
                       <div className="flex justify-between items-center p-4 bg-muted/50 cursor-pointer">
                         <div>
-                          <h3 className="font-bold">Analyzing Useability Test</h3>
-                          <div className="text-sm text-muted-foreground">Duration: 120:00 min</div>
+                          <h3 className="font-bold">
+                            Analyzing Useability Test
+                          </h3>
+                          <div className="text-sm text-muted-foreground">
+                            Duration: 120:00 min
+                          </div>
                         </div>
                         <ChevronDown className="h-5 w-5" />
                       </div>
@@ -230,7 +266,9 @@ export default function CourseDetailPage() {
                       <div className="flex justify-between items-center p-4 bg-muted/50 cursor-pointer">
                         <div>
                           <h3 className="font-bold">Introducing Ux Low</h3>
-                          <div className="text-sm text-muted-foreground">Duration: 80:00 min</div>
+                          <div className="text-sm text-muted-foreground">
+                            Duration: 80:00 min
+                          </div>
                         </div>
                         <ChevronDown className="h-5 w-5" />
                       </div>
@@ -240,14 +278,23 @@ export default function CourseDetailPage() {
               </TabsContent>
               <TabsContent value="instructor">
                 <div>
-                  <h2 className="text-2xl font-bold mb-4">About the Instructor</h2>
+                  <h2 className="text-2xl font-bold mb-4">
+                    About the Instructor
+                  </h2>
                   <div className="flex items-start gap-4 mb-6">
                     <div className="w-24 h-24 rounded-full bg-primary/20 overflow-hidden flex-shrink-0">
-                      <Image src="/placeholder.svg?height=96&width=96" alt="Instructor" width={96} height={96} />
+                      <Image
+                        src="/placeholder.svg?height=96&width=96"
+                        alt="Instructor"
+                        width={96}
+                        height={96}
+                      />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold">Jack Nickolson</h3>
-                      <div className="text-muted-foreground mb-2">AI Researcher & Developer</div>
+                      <div className="text-muted-foreground mb-2">
+                        AI Researcher & Developer
+                      </div>
                       <div className="flex items-center gap-4 mb-4">
                         <div className="flex items-center gap-1">
                           <svg
@@ -287,10 +334,13 @@ export default function CourseDetailPage() {
                         </div>
                       </div>
                       <p className="text-muted-foreground">
-                        Jack is an AI researcher and developer with over 10 years of experience in the field. He has
-                        worked on numerous AI projects for Fortune 500 companies and has published several papers on
-                        machine learning and artificial intelligence. Jack is passionate about making AI accessible to
-                        everyone and believes in a problem-first approach to building AI applications.
+                        Jack is an AI researcher and developer with over 10
+                        years of experience in the field. He has worked on
+                        numerous AI projects for Fortune 500 companies and has
+                        published several papers on machine learning and
+                        artificial intelligence. Jack is passionate about making
+                        AI accessible to everyone and believes in a
+                        problem-first approach to building AI applications.
                       </p>
                     </div>
                   </div>
@@ -309,18 +359,27 @@ export default function CourseDetailPage() {
                         <Star className="w-5 h-5 fill-current" />
                         <Star className="w-5 h-5 fill-current" />
                       </div>
-                      <div className="text-muted-foreground">Based on 23 reviews</div>
+                      <div className="text-muted-foreground">
+                        Based on 23 reviews
+                      </div>
                     </div>
                   </div>
                   <div className="space-y-6">
                     <div className="border-b pb-6">
                       <div className="flex items-center gap-3 mb-2">
                         <div className="w-10 h-10 rounded-full bg-primary/20 overflow-hidden">
-                          <Image src="/placeholder.svg?height=40&width=40" alt="Reviewer" width={40} height={40} />
+                          <Image
+                            src="/placeholder.svg?height=40&width=40"
+                            alt="Reviewer"
+                            width={40}
+                            height={40}
+                          />
                         </div>
                         <div>
                           <div className="font-medium">Robert Sonny</div>
-                          <div className="text-xs text-muted-foreground">2 weeks ago</div>
+                          <div className="text-xs text-muted-foreground">
+                            2 weeks ago
+                          </div>
                         </div>
                         <div className="ml-auto flex text-yellow-400">
                           <Star className="w-4 h-4 fill-current" />
@@ -331,19 +390,28 @@ export default function CourseDetailPage() {
                         </div>
                       </div>
                       <p className="text-muted-foreground">
-                        This course exceeded my expectations. Jack is an excellent instructor who breaks down complex
-                        concepts into easy-to-understand chunks. The problem-first approach really helped me understand
-                        how to apply AI in real-world scenarios.
+                        This course exceeded my expectations. Jack is an
+                        excellent instructor who breaks down complex concepts
+                        into easy-to-understand chunks. The problem-first
+                        approach really helped me understand how to apply AI in
+                        real-world scenarios.
                       </p>
                     </div>
                     <div className="border-b pb-6">
                       <div className="flex items-center gap-3 mb-2">
                         <div className="w-10 h-10 rounded-full bg-primary/20 overflow-hidden">
-                          <Image src="/placeholder.svg?height=40&width=40" alt="Reviewer" width={40} height={40} />
+                          <Image
+                            src="/placeholder.svg?height=40&width=40"
+                            alt="Reviewer"
+                            width={40}
+                            height={40}
+                          />
                         </div>
                         <div>
                           <div className="font-medium">Sarah Johnson</div>
-                          <div className="text-xs text-muted-foreground">1 month ago</div>
+                          <div className="text-xs text-muted-foreground">
+                            1 month ago
+                          </div>
                         </div>
                         <div className="ml-auto flex text-yellow-400">
                           <Star className="w-4 h-4 fill-current" />
@@ -354,8 +422,10 @@ export default function CourseDetailPage() {
                         </div>
                       </div>
                       <p className="text-muted-foreground">
-                        I've taken several AI courses before, but this one stands out because of its practical approach.
-                        The hands-on projects were challenging but incredibly rewarding. Highly recommend!
+                        I've taken several AI courses before, but this one
+                        stands out because of its practical approach. The
+                        hands-on projects were challenging but incredibly
+                        rewarding. Highly recommend!
                       </p>
                     </div>
                   </div>
@@ -459,24 +529,34 @@ export default function CourseDetailPage() {
                   </Button>
                 </div>
                 <div className="mt-6">
-                  <div className="text-sm font-medium mb-2">Select Schedule</div>
+                  <div className="text-sm font-medium mb-2">
+                    Select Schedule
+                  </div>
                   <div className="space-y-2">
                     <div className="border rounded-md p-3 cursor-pointer hover:bg-muted/50">
                       <div className="flex justify-between items-center">
                         <div>
                           <div className="font-medium">May 5 - June 2</div>
-                          <div className="text-sm text-muted-foreground">Tuesdays & Thursdays, 7-9 PM EST</div>
+                          <div className="text-sm text-muted-foreground">
+                            Tuesdays & Thursdays, 7-9 PM EST
+                          </div>
                         </div>
-                        <div className="text-sm text-red-500 font-medium">4 Seats Left</div>
+                        <div className="text-sm text-red-500 font-medium">
+                          4 Seats Left
+                        </div>
                       </div>
                     </div>
                     <div className="border rounded-md p-3 cursor-pointer hover:bg-muted/50">
                       <div className="flex justify-between items-center">
                         <div>
                           <div className="font-medium">June 10 - July 8</div>
-                          <div className="text-sm text-muted-foreground">Mondays & Wednesdays, 6-8 PM EST</div>
+                          <div className="text-sm text-muted-foreground">
+                            Mondays & Wednesdays, 6-8 PM EST
+                          </div>
                         </div>
-                        <div className="text-sm text-green-500 font-medium">12 Seats Left</div>
+                        <div className="text-sm text-green-500 font-medium">
+                          12 Seats Left
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -486,6 +566,7 @@ export default function CourseDetailPage() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
-  )
+  );
 }

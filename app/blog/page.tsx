@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -7,7 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Footer from "@/components/footer";
 
 export default function BlogPage() {
-    const blogPosts = [
+  const blogPosts = [
     {
       id: 1,
       title: "10 Essential Tips for Online Learning Success",
@@ -75,7 +75,8 @@ export default function BlogPage() {
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4">Blog & Resources</h1>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Explore our latest articles, tutorials, and insights to enhance your learning journey and stay updated with educational trends.
+            Explore our latest articles, tutorials, and insights to enhance your
+            learning journey and stay updated with educational trends.
           </p>
         </div>
 
@@ -113,10 +114,13 @@ export default function BlogPage() {
         </div>
 
         <div className="mt-12 text-center">
-          <h2 className="text-2xl font-bold mb-6">Subscribe to Our Newsletter</h2>
+          <h2 className="text-2xl font-bold mb-6">
+            Subscribe to Our Newsletter
+          </h2>
           <div className="max-w-md mx-auto">
             <p className="text-muted-foreground mb-4">
-              Stay updated with our latest articles, courses, and educational resources delivered straight to your inbox. Never miss an update!
+              Stay updated with our latest articles, courses, and educational
+              resources delivered straight to your inbox. Never miss an update!
             </p>
             <div className="flex gap-2">
               <input

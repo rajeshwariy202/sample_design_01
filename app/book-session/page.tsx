@@ -8,10 +8,23 @@ export default function BookSessionPage() {
   const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth());
   const [selectedDate, setSelectedDate] = useState<number | null>(null);
 
-  const years = Array.from({ length: 10 }, (_, i) => new Date().getFullYear() - 5 + i);
+  const years = Array.from(
+    { length: 10 },
+    (_, i) => new Date().getFullYear() - 5 + i
+  );
   const months = [
-    "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
   ];
 
   const getDaysInMonth = (year: number, month: number) => {
@@ -29,28 +42,38 @@ export default function BookSessionPage() {
           <div className="flex-1 space-y-4">
             {/* Year Dropdown */}
             <div>
-              <label className="block text-sm font-medium text-gray-700">Year</label>
+              <label className="block text-sm font-medium text-gray-700">
+                Year
+              </label>
               <select
                 className="w-full p-2 border rounded-md"
                 value={selectedYear}
                 onChange={(e) => setSelectedYear(Number(e.target.value))}
               >
                 {years.map((year) => (
-                  <option key={year} value={year}>{year}</option>
+                  <option key={year} value={year}>
+                    {year}
+                  </option>
                 ))}
               </select>
             </div>
 
             {/* Month Dropdown */}
             <div>
-              <label className="block text-sm font-medium text-gray-700">Month</label>
+              <label className="block text-sm font-medium text-gray-700">
+                Month
+              </label>
               <select
                 className="w-full p-2 border rounded-md"
                 value={selectedMonth}
-                onChange={(e) => setSelectedMonth(Number(e.target.selectedIndex))}
+                onChange={(e) =>
+                  setSelectedMonth(Number(e.target.selectedIndex))
+                }
               >
                 {months.map((month, index) => (
-                  <option key={index} value={index}>{month}</option>
+                  <option key={index} value={index}>
+                    {month}
+                  </option>
                 ))}
               </select>
             </div>
@@ -63,19 +86,25 @@ export default function BookSessionPage() {
             </h3>
             <div className="grid grid-cols-7 gap-2">
               {["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"].map((day) => (
-                <div key={day} className="text-center font-medium">{day}</div>
-              ))}
-              {[...Array(getDaysInMonth(selectedYear, selectedMonth))].map((_, i) => (
-                <div
-                  key={i}
-                  className={`text-center p-2 rounded-lg cursor-pointer ${
-                    selectedDate === i + 1 ? "bg-blue-500 text-white" : "hover:bg-gray-300"
-                  }`}
-                  onClick={() => setSelectedDate(i + 1)}
-                >
-                  {i + 1}
+                <div key={day} className="text-center font-medium">
+                  {day}
                 </div>
               ))}
+              {[...Array(getDaysInMonth(selectedYear, selectedMonth))].map(
+                (_, i) => (
+                  <div
+                    key={i}
+                    className={`text-center p-2 rounded-lg cursor-pointer ${
+                      selectedDate === i + 1
+                        ? "bg-blue-500 text-white"
+                        : "hover:bg-gray-300"
+                    }`}
+                    onClick={() => setSelectedDate(i + 1)}
+                  >
+                    {i + 1}
+                  </div>
+                )
+              )}
             </div>
           </div>
         </div>
@@ -83,35 +112,44 @@ export default function BookSessionPage() {
         {/* Selected Date Display */}
         {selectedDate && (
           <p className="text-center text-lg font-semibold text-blue-600 mt-4">
-            Selected Date: {selectedDate} {months[selectedMonth]}, {selectedYear}
+            Selected Date: {selectedDate} {months[selectedMonth]},{" "}
+            {selectedYear}
           </p>
         )}
 
         {/* Other Dropdowns */}
         <div className="mt-6 space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700">Timezone</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Timezone
+            </label>
             <select className="w-full p-2 border rounded-md">
               <option>Eastern Time (US & Canada)</option>
             </select>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700">Duration</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Duration
+            </label>
             <select className="w-full p-2 border rounded-md">
               <option>10 minutes</option>
             </select>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700">Mode of Consultation</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Mode of Consultation
+            </label>
             <select className="w-full p-2 border rounded-md">
               <option>Chat</option>
             </select>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700">Select Your Appointment Time</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Select Your Appointment Time
+            </label>
             <select className="w-full p-2 border rounded-md">
               <option>1:30 AM</option>
               <option>2:00 AM</option>
@@ -133,7 +171,7 @@ export default function BookSessionPage() {
       </div>
 
       {/* Footer */}
-           <Footer />
+      <Footer />
     </>
   );
 }

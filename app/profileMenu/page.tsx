@@ -1,117 +1,64 @@
-'use client'; // if you're in app/ directory
+'use client';
 
-import { useState, useRef, useEffect } from 'react';
-import Link from 'next/link';
-import {
-  Bell,
-  LogOut,
-  ClipboardList,
-  Heart,
-  ShoppingCart,
-  Grid,
-} from 'lucide-react';
+import React from 'react';
+import profilePic from '../../images/profile.png';
+import bannerPic from '../../images/banner.png';
 
-export default function ProfileMenu() {
-  const [open, setOpen] = useState(false);
-  const containerRef = useRef(null);
+interface CourseStatProps {
+  label: string;
+  count: number;
+  icon: string;
+}
 
-  // close on outside click
-  useEffect(() => {
-    function handleClickOutside(e) {
-      if (containerRef.current && !containerRef.current.contains(e.target)) {
-        setOpen(false);
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
+const CourseStat: React.FC<CourseStatProps> = ({ label, count, icon }) => (
+  <div className="bg-white rounded-lg shadow p-4 flex items-center gap-4">
+    <img src={icon} alt={label} className="w-10 h-10" />
+    <div>
+      <p className="text-sm font-medium text-gray-700">{label}</p>
+      <p className="text-lg font-bold">{count}</p>
+    </div>
+  </div>
+);
 
+const ProfilePage: React.FC = () => {
   return (
-    <div ref={containerRef} className="relative">
-      {/* Avatar button */}
-      <button
-        onClick={() => setOpen((v) => !v)}
-        className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-offset-2 ring-transparent hover:ring-primary transition"
-      >
-        <img
-          src="/images/profile.png"
-          alt="Profile"
-          className="object-cover w-full h-full"
-        />
-      </button>
-
-      {/* Dropdown panel */}
-      {open && (
-        <div
-          className={`
-            absolute right-0 mt-2 w-56
-            bg-white border border-gray-200 rounded-lg shadow-lg
-            transition duration-200
-            before:absolute before:-top-2 before:right-4
-            before:border-8 before:border-x-transparent
-            before:border-t-transparent before:border-b-white
-          `}
-        >
-          {/* Header */}
-          <div className="px-4 py-3 border-b flex items-center gap-3">
-            <img
-              src="/images/profile.png"
-              alt="Profile"
-              className="w-8 h-8 rounded-full object-cover"
-            />
-            <div>
-              <p className="font-medium">Jonathon Smith</p>
-              <p className="text-xs text-gray-500">
-                jonathonsmith@gmail.com
-              </p>
+    <div className="bg-[#f5f0e8] min-h-screen p-4">
+      {/* Header */}
+      <div className="bg-white shadow-md rounded-md overflow-hidden">
+        <div className="relative">
+          {/* Banner */}
+          <img
+            src={bannerPic.src}
+            alt="Banner"
+            className="w-full h-40 object-cover"
+          />
+          {/* Profile Picture */}
+          <div className="absolute left-1/2 -bottom-10 transform -translate-x-1/2">
+            <div className="relative w-24 h-24 rounded-full overflow-hidden border-4 border-white">
+              <img
+                src={profilePic.src}
+                alt="Profile"
+                className="object-cover w-full h-full"
+              />
             </div>
           </div>
-
-          {/* Menu items */}
-          <nav className="py-2">
-            <MenuItem href="/dashboard" icon={<Grid className="w-5 h-5" />}>
-              Dashboard
-            </MenuItem>
-            <MenuItem href="/orders" icon={<ShoppingCart className="w-5 h-5" />}>
-              Order History
-            </MenuItem>
-            <MenuItem
-              href="/courses"
-              icon={<ClipboardList className="w-5 h-5" />}
-            >
-              Enrolled Courses
-            </MenuItem>
-            <MenuItem href="/wishlist" icon={<Heart className="w-5 h-5" />}>
-              Wishlist
-            </MenuItem>
-            <MenuItem
-              href="/quizzes"
-              icon={<ClipboardList className="w-5 h-5" />}
-            >
-              My Quiz Attempts
-            </MenuItem>
-          </nav>
-
-          {/* Logout */}
-          <div className="px-4 py-2 border-t">
-            <button className="w-full flex items-center gap-2 text-sm text-red-600 hover:text-red-800">
-              <LogOut className="w-5 h-5" />
-              Logout
-            </button>
-          </div>
         </div>
-      )}
+
+        {/* Name & Info */}
+        <div className="mt-12 text-center px-4 pb-6">
+          <h1 className="text-xl font-bold">Jonathon Smith</h1>
+          <p className="text-gray-600 text-sm">Student at Harvard University</p>
+        </div>
+      </div>
+
+      {/* Stats Section */}
+      <div className="mt-6 space-y-4">
+        <CourseStat label="Enrolled Courses" count={5} icon="/icons/enrolled.svg" />
+        <CourseStat label="Active Courses" count={3} icon="/icons/active.svg" />
+        <CourseStat label="Completed Courses" count={2} icon="/icons/completed.svg" />
+      </div>
     </div>
   );
-}
+};
 
-function MenuItem({ href, icon, children }) {
-  return (
-    <Link href={href}>
-      <a className="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-        {icon}
-        <span>{children}</span>
-      </a>
-    </Link>
-  );
-}
+export default ProfilePage;

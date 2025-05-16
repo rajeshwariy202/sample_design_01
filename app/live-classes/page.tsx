@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -10,7 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Footer from "@/components/footer";
 
 export default function LiveClassesPage() {
-const liveClasses = [
+  const liveClasses = [
     {
       id: 1,
       title: "Building Agentic AI Applications with a Problem-First Approach",
@@ -132,10 +132,16 @@ const liveClasses = [
                   </div>
                   <CardContent className="p-6">
                     <div className="flex flex-wrap items-center gap-2 mb-2">
-                      <Badge variant="outline" className="bg-primary/10 text-primary">
+                      <Badge
+                        variant="outline"
+                        className="bg-primary/10 text-primary"
+                      >
                         {liveClass.category}
                       </Badge>
-                      <Badge variant="outline" className="bg-muted text-muted-foreground">
+                      <Badge
+                        variant="outline"
+                        className="bg-muted text-muted-foreground"
+                      >
                         Live Class
                       </Badge>
                     </div>
@@ -197,7 +203,9 @@ const liveClasses = [
 
           <TabsContent value="calendar">
             <div className="text-center py-12">
-              <p className="text-muted-foreground">Calendar view coming soon...</p>
+              <p className="text-muted-foreground">
+                Calendar view coming soon...
+              </p>
             </div>
           </TabsContent>
           <TabsContent value="my-classes">
@@ -228,14 +236,16 @@ const liveClasses = [
                 </div>
                 <h3 className="text-xl font-bold mb-2">
                   {step === 1
-                    ? 'Book a Live Class' : step === 2
-                    ? 'Join the Session' : 'Access Recordings'}
+                    ? "Book a Live Class"
+                    : step === 2
+                    ? "Join the Session"
+                    : "Access Recordings"}
                 </h3>
                 <p className="text-muted-foreground max-w-xs mx-auto">
                   {step === 1
-                    ? 'Choose your preferred time slot and reserve your spot with instant confirmation.'
+                    ? "Choose your preferred time slot and reserve your spot with instant confirmation."
                     : step === 2
-                    ? 'Receive a Zoom link via email 30 minutes before the class starts.'
+                    ? "Receive a Zoom link via email 30 minutes before the class starts."
                     : "Can't attend live? All sessions are recorded and available for 30 days after the class."}
                 </p>
               </div>

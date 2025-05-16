@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -11,7 +11,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Footer from "@/components/footer";
 
 export default function CoursesPage() {
-   const courses = [
+  const courses = [
     {
       id: 1,
       title: "Building Agentic AI Applications with a Problem-First Approach",
@@ -19,7 +19,7 @@ export default function CoursesPage() {
       rating: 5.0,
       reviews: 23,
       price: 199.99,
-      image:"/placeholder.svg?height=48&width=48",
+      image: "/placeholder.svg?height=48&width=48",
       category: "Technology",
       level: "Intermediate",
       duration: "4 weeks",
@@ -84,7 +84,7 @@ export default function CoursesPage() {
       level: "Advanced",
       duration: "6 weeks",
     },
-  ]
+  ];
 
   const categories = [
     { name: "All Categories", count: 24 },
@@ -109,8 +109,9 @@ export default function CoursesPage() {
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4">Explore Our Courses</h1>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Discover a wide range of courses taught by industry experts. Advance your career, learn new skills,
-            or pursue your passions with our comprehensive curriculum.
+            Discover a wide range of courses taught by industry experts. Advance
+            your career, learn new skills, or pursue your passions with our
+            comprehensive curriculum.
           </p>
         </div>
 
@@ -122,7 +123,11 @@ export default function CoursesPage() {
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="text-xl font-bold">Filters</h2>
-                  <Button variant="ghost" size="sm" className="h-8 px-2 text-primary">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="h-8 px-2 text-primary"
+                  >
                     Clear All
                   </Button>
                 </div>
@@ -137,12 +142,20 @@ export default function CoursesPage() {
                 <h3 className="font-bold mb-3">Categories</h3>
                 <div className="space-y-2">
                   {categories.map((cat, idx) => (
-                    <div key={idx} className="flex items-center justify-between">
+                    <div
+                      key={idx}
+                      className="flex items-center justify-between"
+                    >
                       <label className="flex items-center space-x-2 cursor-pointer">
-                        <input type="checkbox" className="rounded border-gray-300" />
+                        <input
+                          type="checkbox"
+                          className="rounded border-gray-300"
+                        />
                         <span>{cat.name}</span>
                       </label>
-                      <span className="text-xs text-muted-foreground">{cat.count}</span>
+                      <span className="text-xs text-muted-foreground">
+                        {cat.count}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -153,12 +166,20 @@ export default function CoursesPage() {
                 <h3 className="font-bold mb-3">Level</h3>
                 <div className="space-y-2">
                   {levels.map((lvl, idx) => (
-                    <div key={idx} className="flex items-center justify-between">
+                    <div
+                      key={idx}
+                      className="flex items-center justify-between"
+                    >
                       <label className="flex items-center space-x-2 cursor-pointer">
-                        <input type="checkbox" className="rounded border-gray-300" />
+                        <input
+                          type="checkbox"
+                          className="rounded border-gray-300"
+                        />
                         <span>{lvl.name}</span>
                       </label>
-                      <span className="text-xs text-muted-foreground">{lvl.count}</span>
+                      <span className="text-xs text-muted-foreground">
+                        {lvl.count}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -186,9 +207,13 @@ export default function CoursesPage() {
           <section className="md:w-3/4">
             {/* Header & Sort */}
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">
-              <h2 className="text-xl font-bold">{courses.length} courses available</h2>
+              <h2 className="text-xl font-bold">
+                {courses.length} courses available
+              </h2>
               <div className="flex items-center mt-4 sm:mt-0">
-                <span className="text-sm text-muted-foreground mr-2">Sort by:</span>
+                <span className="text-sm text-muted-foreground mr-2">
+                  Sort by:
+                </span>
                 <select className="border rounded-md p-1 text-sm">
                   <option>Most Popular</option>
                   <option>Newest</option>
@@ -213,32 +238,58 @@ export default function CoursesPage() {
                   {courses.map((course) => (
                     <Card key={course.id} className="overflow-hidden">
                       <div className="relative h-48">
-                        <Image src={course.image} alt={course.title} fill className="object-cover" />
+                        <Image
+                          src={course.image}
+                          alt={course.title}
+                          fill
+                          className="object-cover"
+                        />
                       </div>
                       <CardContent className="p-6">
                         <div className="flex items-center gap-2 mb-2">
-                          <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20">
+                          <Badge
+                            variant="outline"
+                            className="bg-primary/10 text-primary border-primary/20"
+                          >
                             {course.category}
                           </Badge>
-                          <Badge variant="outline" className="bg-muted text-muted-foreground">
+                          <Badge
+                            variant="outline"
+                            className="bg-muted text-muted-foreground"
+                          >
                             {course.level}
                           </Badge>
                         </div>
-                        <h3 className="text-xl font-bold mb-2 line-clamp-2">{course.title}</h3>
+                        <h3 className="text-xl font-bold mb-2 line-clamp-2">
+                          {course.title}
+                        </h3>
                         <div className="flex items-center mb-2">
                           <div className="flex text-yellow-400 mr-2">
-                            {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
+                            {[...Array(5)].map((_, i) => (
+                              <Star key={i} className="w-4 h-4 fill-current" />
+                            ))}
                           </div>
-                          <span className="text-sm">{course.rating} ({course.reviews})</span>
+                          <span className="text-sm">
+                            {course.rating} ({course.reviews})
+                          </span>
                         </div>
                         <div className="flex items-center gap-3 mb-4">
                           <div className="w-8 h-8 rounded-full bg-primary/20 overflow-hidden">
-                            <Image src="/placeholder.svg?height=32&width=32" alt={course.instructor} width={32} height={32} />
+                            <Image
+                              src="/placeholder.svg?height=32&width=32"
+                              alt={course.instructor}
+                              width={32}
+                              height={32}
+                            />
                           </div>
-                          <div className="font-medium text-sm">{course.instructor}</div>
+                          <div className="font-medium text-sm">
+                            {course.instructor}
+                          </div>
                         </div>
                         <div className="flex justify-between items-center">
-                          <span className="text-xl font-bold">${course.price}</span>
+                          <span className="text-xl font-bold">
+                            ${course.price}
+                          </span>
                           <Button asChild>
                             <Link href="/course-details">View Course</Link>
                           </Button>
@@ -257,9 +308,19 @@ export default function CoursesPage() {
                 <Button variant="outline" size="icon" disabled>
                   <Search />
                 </Button>
-                <Button variant="outline" size="sm" className="bg-primary text-primary-foreground">1</Button>
-                <Button variant="outline" size="sm">2</Button>
-                <Button variant="outline" size="sm">3</Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="bg-primary text-primary-foreground"
+                >
+                  1
+                </Button>
+                <Button variant="outline" size="sm">
+                  2
+                </Button>
+                <Button variant="outline" size="sm">
+                  3
+                </Button>
                 <Button variant="outline" size="icon">
                   <Search />
                 </Button>

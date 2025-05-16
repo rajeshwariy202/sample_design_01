@@ -1,18 +1,29 @@
-'use client';  
+'use client';
 
 import React from 'react';
-import { Camera } from 'lucide-react';
-import profilePic from '../../images/profile.png'
-import bannerPic from '../../images/banner.png'
+import profilePic from '../../images/profile.png';
+import bannerPic from '../../images/banner.png';
+import Footer from '@/components/footer';
 
-const ProfilePage = () => {
-    interface StaticImageData {
-  src: string
-  height: number
-  width: number
-  blurDataURL?: string
+interface CourseStatProps {
+  label: string;
+  count: number;
+  icon: string;
 }
+
+const CourseStat: React.FC<CourseStatProps> = ({ label, count, icon }) => (
+  <div className="bg-white rounded-lg shadow p-4 flex items-center gap-4">
+    <img src={icon} alt={label} className="w-10 h-10" />
+    <div>
+      <p className="text-sm font-medium text-gray-700">{label}</p>
+      <p className="text-lg font-bold">{count}</p>
+    </div>
+  </div>
+);
+
+const ProfilePage: React.FC = () => {
   return (
+    <>
     <div className="bg-[#f5f0e8] min-h-screen p-4">
       {/* Header */}
       <div className="bg-white shadow-md rounded-md overflow-hidden">
@@ -27,11 +38,10 @@ const ProfilePage = () => {
           <div className="absolute left-1/2 -bottom-10 transform -translate-x-1/2">
             <div className="relative w-24 h-24 rounded-full overflow-hidden border-4 border-white">
               <img
-                  src={profilePic.src}
+                src={profilePic.src}
                 alt="Profile"
                 className="object-cover w-full h-full"
               />
-            
             </div>
           </div>
         </div>
@@ -45,22 +55,15 @@ const ProfilePage = () => {
 
       {/* Stats Section */}
       <div className="mt-6 space-y-4">
-        <CourseStat label="Enrolled Courses" count={5} icon="" />
-        <CourseStat label="Active Courses" count={3} icon="" />
-        <CourseStat label="Completed Courses" count={2} icon="" />
+        <CourseStat label="Enrolled Courses" count={5} icon="/icons/enrolled.svg" />
+        <CourseStat label="Active Courses" count={3} icon="/icons/active.svg" />
+        <CourseStat label="Completed Courses" count={2} icon="/icons/completed.svg" />
       </div>
     </div>
+      <Footer/>
+
+    </>
   );
 };
-
-const CourseStat = ({ label, count, icon }) => (
-  <div className="bg-white rounded-lg shadow p-4 flex items-center gap-4">
-    <img src={icon} alt={label} className="w-10 h-10" />
-    <div>
-      <p className="text-sm font-medium text-gray-700">{label}</p>
-      <p className="text-lg font-bold">{count}</p>
-    </div>
-  </div>
-);
 
 export default ProfilePage;

@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
 import { useRouter } from "next/navigation";
 import React from "react";
-import Footer from '@/components/footer';
+import Footer from "@/components/footer";
 
 export default function QuizContestPage() {
   const router = useRouter();
@@ -14,12 +14,14 @@ export default function QuizContestPage() {
         <div className="bg-white p-6 rounded-lg shadow-md space-y-8">
           {/* Current Week's Quiz */}
           <section className="bg-blue-500 text-white p-6 rounded-lg">
-            <h2 className="text-xl font-bold mb-2">Join This Week's Quiz Contest</h2>
+            <h2 className="text-xl font-bold mb-2">
+              Join This Week's Quiz Contest
+            </h2>
             <p className="text-lg">Topic: Advanced Arithmetic</p>
             <p>Questions: 20</p>
             <p>Time: 30 mins</p>
             <button
-              onClick={() => router.push('/quiz/this-week')}
+              onClick={() => router.push("/quiz/this-week")}
               className="mt-4 bg-white text-blue-500 px-4 py-2 rounded-md"
             >
               Participate Now
@@ -41,10 +43,23 @@ export default function QuizContestPage() {
             {/* Quiz List */}
             <div className="w-full md:w-3/4 space-y-4 bg-white p-4 rounded-lg shadow-sm">
               {[
-                { id: 4, title: 'Quiz 04: World Geography for Competitive Exams', route: '/quiz-04' },
-                { id: 3, title: 'Quiz 03: Advanced Arithmetic for Competitive Exams' },
-                { id: 2, title: 'Quiz 02: Mughal History for Competitive Exams' },
-                { id: 1, title: 'Quiz 01: World Geography for Competitive Exams' },
+                {
+                  id: 4,
+                  title: "Quiz 04: World Geography for Competitive Exams",
+                  route: "/quiz-04",
+                },
+                {
+                  id: 3,
+                  title: "Quiz 03: Advanced Arithmetic for Competitive Exams",
+                },
+                {
+                  id: 2,
+                  title: "Quiz 02: Mughal History for Competitive Exams",
+                },
+                {
+                  id: 1,
+                  title: "Quiz 01: World Geography for Competitive Exams",
+                },
               ].map((quiz) => (
                 <div
                   key={quiz.id}

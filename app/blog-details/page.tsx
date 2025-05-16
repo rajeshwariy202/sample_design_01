@@ -3,6 +3,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { Card, CardContent } from "@/components/ui/card"
+import Footer from "@/components/footer"
 
 export default function BlogPostPage() {
   // This would normally come from a database or API
@@ -78,6 +79,7 @@ export default function BlogPostPage() {
   }
 
   return (
+    <>
     <div className="container py-12">
       <div className="max-w-4xl mx-auto">
         <div className="mb-8">
@@ -183,5 +185,7 @@ export default function BlogPostPage() {
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   )
 }

@@ -1,11 +1,22 @@
-'use client';
+"use client";
 
-import React from 'react';
-import Image from 'next/image';
-import profile from '../../images/profile.png';
-import codeSnap from '../../images/codesnap-screenshot.png';
-import airthmatic from '../../images/advanced-airthmatic.jpg';
-import Footer from '@/components/footer';
+import React from "react";
+import Image, { StaticImageData } from "next/image";
+import profile from "../../images/profile.png";
+import codeSnap from "../../images/codesnap-screenshot.png";
+import airthmatic from "../../images/advanced-airthmatic.jpg";
+import Footer from "@/components/footer";
+
+type CourseCardProps = {
+  image: StaticImageData;
+  title: string;
+  rating: string;
+  reviews: number;
+  lessons: number;
+  duration: string;
+  progress: number;
+  user: string;
+};
 
 const EnrolledCourse = () => {
   return (
@@ -45,7 +56,16 @@ const EnrolledCourse = () => {
   );
 };
 
-function CourseCard({ image, title, rating, reviews, lessons, duration, progress, user }) {
+function CourseCard({
+  image,
+  title,
+  rating,
+  reviews,
+  lessons,
+  duration,
+  progress,
+  user,
+}: CourseCardProps) {
   const percent = Math.round((progress / lessons) * 100);
   return (
     <div className="flex flex-col">
@@ -59,14 +79,18 @@ function CourseCard({ image, title, rating, reviews, lessons, duration, progress
       <h3 className="mt-4 text-lg font-semibold text-center">{title}</h3>
       <div className="flex flex-wrap justify-center items-center text-sm text-gray-600 mt-2 gap-x-2">
         <span className="text-yellow-500">&#9733;</span>
-        <span>{rating} ({reviews} reviews)</span>
+        <span>
+          {rating} ({reviews} reviews)
+        </span>
         <span>•</span>
         <span>{lessons} Lessons</span>
         <span>•</span>
         <span>{duration}</span>
       </div>
       <div className="flex items-center justify-center mt-4 gap-x-2">
-        <span className="text-sm text-gray-600">{progress}/{lessons}</span>
+        <span className="text-sm text-gray-600">
+          {progress}/{lessons}
+        </span>
         <div className="w-full max-w-xs bg-gray-300 rounded-full h-2">
           <div
             className="bg-green-500 h-2 rounded-full"

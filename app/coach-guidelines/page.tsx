@@ -1,13 +1,28 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import Footer from '@/components/footer';
+import Footer from "@/components/footer";
 
 export default function CoachGuidelinesPage() {
   const coachData = [
-    { title: "Licensed Therapists", description: "Licensed therapists and mental wellness professionals offering group or 1:1 emotional support.", image: "/placeholder.svg" },
-    { title: "Organizational Experts", description: "Coaches with expertise in workplace structure, leadership dynamics, team efficiency, and performance coaching.", image: "/placeholder.svg" },
-    { title: "HR & Well-being Consultants", description: "Specialists in employee wellness, organizational culture, HR frameworks, and healthy workplace ecosystems.", image: "/placeholder.svg" },
+    {
+      title: "Licensed Therapists",
+      description:
+        "Licensed therapists and mental wellness professionals offering group or 1:1 emotional support.",
+      image: "/placeholder.svg",
+    },
+    {
+      title: "Organizational Experts",
+      description:
+        "Coaches with expertise in workplace structure, leadership dynamics, team efficiency, and performance coaching.",
+      image: "/placeholder.svg",
+    },
+    {
+      title: "HR & Well-being Consultants",
+      description:
+        "Specialists in employee wellness, organizational culture, HR frameworks, and healthy workplace ecosystems.",
+      image: "/placeholder.svg",
+    },
   ];
 
   return (
@@ -16,7 +31,8 @@ export default function CoachGuidelinesPage() {
         <div className="max-w-4xl mx-auto text-center space-y-4">
           <h1 className="text-4xl font-bold">Coach Guidelines</h1>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Everything you need to know about becoming and succeeding as a coach on our platform.
+            Everything you need to know about becoming and succeeding as a coach
+            on our platform.
           </p>
         </div>
 
@@ -29,15 +45,26 @@ export default function CoachGuidelinesPage() {
           </TabsList>
 
           <TabsContent value="getting-started" className="space-y-6">
-            <h2 className="text-2xl font-bold">Welcome to Our Coaching Community</h2>
+            <h2 className="text-2xl font-bold">
+              Welcome to Our Coaching Community
+            </h2>
             <p className="text-muted-foreground">
-              We’re excited to have you join our network of professionals empowering learners through live sessions and one-on-one mentorship.
+              We’re excited to have you join our network of professionals
+              empowering learners through live sessions and one-on-one
+              mentorship.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {coachData.map((item, idx) => (
-                <div key={idx} className="bg-white shadow-md rounded-lg overflow-hidden">
-                  <img src={item.image} alt={item.title} className="w-full h-40 object-cover" />
+                <div
+                  key={idx}
+                  className="bg-white shadow-md rounded-lg overflow-hidden"
+                >
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-40 object-cover"
+                  />
                   <div className="p-4">
                     <h3 className="text-lg font-semibold">{item.title}</h3>
                     <p className="mt-2 text-gray-600">{item.description}</p>
@@ -74,17 +101,19 @@ export default function CoachGuidelinesPage() {
 
             <div className="bg-blue-500 text-white p-6 rounded-lg shadow text-center">
               <h3 className="text-2xl font-bold mb-2">Ready to Get Started?</h3>
-              <p className="mb-4">Apply now to join our community of expert coaches and share your knowledge.</p>
+              <p className="mb-4">
+                Apply now to join our community of expert coaches and share your
+                knowledge.
+              </p>
               <Button asChild>
                 <Link href="/become-coach">Register Now</Link>
               </Button>
             </div>
           </TabsContent>
 
-          {/* ... other tab contents (content-creation, session-delivery, policies) ... */}
+        
         </Tabs>
       </main>
-
       <Footer />
     </div>
   );

@@ -11,7 +11,7 @@ export default function ConfirmSignup() {
                     {/* Code Input Boxes */}
                     <div className="flex justify-center space-x-2 mb-4">
                         {Array(6).fill(0).map((_, index) => (
-                            <input key={index} type="text" maxLength="1" className="w-10 h-10 border border-gray-300 rounded text-center text-xl" />
+                            <input key={index} type="text" maxLength={1} className="w-10 h-10 border border-gray-300 rounded text-center text-xl" />
                         ))}
                     </div>
 
